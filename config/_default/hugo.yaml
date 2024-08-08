@@ -1,6 +1,6 @@
 ---
 title: Feuerwehr Urdorf
-baseURL: https://fwu.tobru.ch/
+baseURL: https://fwu.netlify.app/
 languageCode: de
 defaultContentLanguage: de
 canonifyURLs: false
@@ -21,7 +21,7 @@ permalinks:
     pages: "/:slug/"
     page: /:slug/
     blog: "/:slug/"
-    news: "/:slug/"
+    news: "/news/:slug/"
     mission: "/einsaetze/:slug/"
   section:
     mission: "/einsaetze/"

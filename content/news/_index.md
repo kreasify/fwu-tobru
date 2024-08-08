@@ -9,10 +9,5 @@ sections:
   image: "assets/images/home-section-1-hotline.png"
 - template: news-slider-section
   enable: true
-  years:
-    - "2024"
-    - "2023"
-    - "2022"
-    - "2020"
 layout: page-builder
 ---
