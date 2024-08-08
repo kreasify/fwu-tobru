@@ -57,7 +57,7 @@
     {{- $paginator := .Paginator }}
     {{- $total_posts := $paginator.TotalNumberOfElements }}
     <div class="mb-10">
-      <h3 class="text-black text-[2.25rem] font-bold uppercase mb-[10px]">{{ replace .Title "Einsaetze-" "" }} ({{ $total_posts }})</h3>
+      <h3 class="text-black text-[2.25rem] font-bold uppercase mb-[10px]">{{ replaceRE "(?i)einsaetze-" "" .Title }} ({{ $total_posts }})</h3>
       <div class="w-[56px] h-[3px] bg-primary"></div>
     </div>
     <div class="grid grid-cols-12 md:gap-x-10 xl:gap-x-10 gap-y-10 mb-10">
