@@ -1,0 +1,14 @@
+{{- with .Site.Data.home.banner_section }}
+{{- if .enable }}
+<section class="hero-section">
+    <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 pt-[80px]">
+        <div>
+            <a href="{{ .link }}">
+                {{ partial "image" (dict "Src" .image_mobile "Alt" "Banner image" "Loading" "eager" "Class" "w-full h-auto md:hidden" "DisplayMD" "780x" ) }}
+                {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "w-full h-auto hidden md:block" "DisplayXL" "1600x" ) }}
+            </a>
+        </div>
+    </div>
+</section>
+{{- end }}
+{{- end }}

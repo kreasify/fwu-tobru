@@ -1,0 +1,35 @@
+### Footer
+logo: "assets/images/footer-logo.png"
+description: "Unsere Freizeit für Ihre Sicherheit"
+partners:
+  - image: "assets/images/Partner-Logo-Limmi.png"
+    url: "https://www.spital-limmattal.ch/"
+  - image: "assets/images/Partner-Logo-Samariter.png"
+    url: "http://samariter-urdorf.ch/"
+  - image: "assets/images/Partner-Logo-SRZ.png"
+    url: "https://www.stadt-zuerich.ch/srz"
+  - image: "assets/images/Partner-Logo-Zivilschutz.png"
+    url: "https://lisü.ch/"
+  - image: "assets/images/Partner-Logo-GVZ.png"
+    url: "https://www.gvz.ch/"
+  - image: "assets/images/Partner-Logo-Kapo.png"
+    url: "https://www.zh.ch/de/sicherheitsdirektion/kantonspolizei-zuerich.html"
+  - image: "assets/images/Partner-Logo-FWBA.png"
+    url: "https://lodur-zh.ch/birmensdorf-aesch/"
+  - image: "assets/images/Partner-Logo-FWDIETIKON.png"
+    url: "https://www.dietikon.ch/aemterbereiche/8184"
+contact:
+  - title: "Birmensdorferstrasse 103, 8902 Urdorf"
+    icon: "icon-location"
+  - title: "Notruf: 118"
+    icon: "icon-phone"
+  - title: "feuerwehr@urdorf.ch"
+    icon: "icon-mail"
+copyright: "© 2024 Feuerwehr Urdorf"
+footer_socials:
+  - title: Facebook
+    icon: icon-facebook
+    url: "https://www.facebook.com/feuerwehrurdorf/"
+  - title: Instagram
+    icon: icon-instagram
+    url: "https://www.instagram.com/feuerwehrurdorf/"

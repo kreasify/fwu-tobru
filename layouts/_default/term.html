@@ -1,0 +1,45 @@
+{{- define "main" }}
+<div class="page__term pt-[108px] overflow-hidden bg-[#F9FAFB]">
+  {{- with .Params.page_header }}
+  {{- $include_dict := dict "Params" . }}
+  {{ partial "page-term-header.html" $include_dict }}
+  {{- end }}
+
+  <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 py-[80px]">
+      {{- $section := .Params.page_section }}
+      {{- $paginator := .Paginate .Data.Pages }}
+
+      {{- if eq $section "news" }}
+      {{- $newsPages := where .Data.Pages "Section" "news" }}
+      <div class="mb-10">
+        <h3 class="text-black text-[2.25rem] font-bold uppercase mb-[10px]">{{ .Title }} ({{ len $newsPages }})</h3>
+        <div class="w-[56px] h-[3px] bg-primary"></div>
+      </div>
+      <div class="grid grid-cols-12 md:gap-x-10 xl:gap-x-10 gap-y-10 mb-10">
+      {{- range $index, $el := $paginator.Pages }}
+      {{- if eq .Section $section }}
+      {{ partial "news-card.html" . }}
+      {{- end }}
+      {{- end }}
+      </div>
+      {{- end }}
+
+      {{- if eq $section "mission" }}
+      {{- $missionPages := where .Data.Pages "Section" "mission" }}
+      <div class="mb-10">
+        <h3 class="text-black text-[2.25rem] font-bold uppercase mb-[10px]">{{ .Title }} ({{ len $missionPages }})</h3>
+        <div class="w-[56px] h-[3px] bg-primary"></div>
+      </div>
+      <div class="grid grid-cols-12 md:gap-x-10 xl:gap-x-10 gap-y-10 mb-10">
+      {{- range $index, $el := $paginator.Pages }}
+      {{- if eq .Section $section }}
+      {{ partial "mission-card.html" . }}
+      {{- end }}
+      {{- end }}
+      </div>
+      {{- end }}
+
+    {{ partial "pagination-total-posts.html" . }}
+  </div>
+</div>
+{{- end }}

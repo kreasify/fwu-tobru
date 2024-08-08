@@ -1,0 +1,95 @@
+main:
+  - name: Home
+    url: "/"
+    weight: 10
+  - name: Über Uns
+    url: "#"
+    weight: 20
+  - name: Organisation
+    parent: "Über Uns"
+    url: "/organisation/"
+    weight: 21
+  - name: Anmeldung
+    parent: "Über Uns"
+    url: "/anmeldung/"
+    weight: 22
+  - name: Fahrzeuge
+    parent: "Über Uns"
+    url: "/fahrzeuge/"
+    weight: 23
+  - name: Geschichte
+    parent: "Über Uns"
+    url: "/geschichte/"
+    weight: 24
+  - name: Ältere Geschichte
+    parent: "Über Uns"
+    url: "/geschichte-frueher/"
+    weight: 25
+  - name: Fragen und Antworten
+    parent: "Über Uns"
+    url: "/faq/"
+    weight: 50
+  - name: News
+    url: "/news/"
+    weight: 30
+  - name: Einsätze
+    url: "/einsaetze/"
+    weight: 40
+  - name: Extern
+    url: "#"
+    weight: 50
+  - name: Verein
+    url: "https://feuerwehrvereinurdorf.ch/"
+    weight: 60
+  - name: Mitmachen
+    url: "/anmeldung/"
+    params:
+      class: "button"
+    weight: 70
+  - name: Lodur Urdorf
+    parent: "Extern"
+    url: "https://lodur-zh.ch/urdorf/"
+    weight: 10
+  - name: Feuerwehr Urdorf Cloud
+    parent: "Extern"
+    url: "https://files.feuerwehrurdorf.ch/"
+    weight: 20
+  - name: GVZ
+    parent: "Extern"
+    url: "https://www.gvz.ch/hauptnavigation/feuerwehr"
+    weight: 30
+  - name: FKS CSSP CSP / Feukos
+    parent: "Extern"
+    url: "https://www.feukos.ch/"
+    weight: 40
+  - name: Gemeinde Urdorf
+    parent: "Extern"
+    url: "https://www.urdorf.ch/"
+    weight: 50
+  - name: Jugendfeuerwehr Bezirk Dietikon
+    parent: "Extern"
+    url: "https://lodur-zh.ch/jfw-dietikon/"
+    weight: 60
+  - name: Notfalltreffpunkt
+    parent: "Extern"
+    url: "https://www.notfalltreffpunkt.ch/"
+    weight: 70
+
+footer_left:
+  - name: Home
+    url: "/"
+    weight: 10
+  - name: Über Uns
+    url: "ueber"
+    weight: 20
+  - name: News
+    url: "/news/"
+    weight: 30
+  - name: Einsätze
+    url: "/einsaetze/"
+    weight: 40
+
+footer_center:
+  - name: Impressum
+    url: "impressum"
+    weight: 10

@@ -1,0 +1,13 @@
+{{/* styles */}}
+{{- $options := dict "inlineImports" true }}
+{{- $style := resources.Get "css/styles.css" }}
+{{/*  {{- $splide := resources.Get "js/vendor/splide/dist/css/splide.min.css" }}  */}}
+{{- $splide := resources.Get "css/partials/splide.min.css" }}
+{{- $bundle := slice $splide $style | resources.Concat "css/main.css" }}
+{{- $styles := $bundle | resources.PostCSS $options }}
+{{- if hugo.IsProduction }}
+{{- $styles = $styles | minify | fingerprint | resources.PostProcess }}
+{{- else }}
+{{- $styles = $styles | resources.ExecuteAsTemplate (printf "css/style.dev.%v.css" now.UnixMilli) . }}
+{{- end }}
+<link href="{{ $styles.RelPermalink }}" rel="stylesheet" />

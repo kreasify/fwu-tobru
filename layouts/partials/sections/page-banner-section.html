@@ -1,0 +1,14 @@
+{{- $site := .Site }}
+{{- $section := .section }}
+{{- with $section }}
+{{- if .enable }}
+<section class="page-banner-section bg-white">
+    <div class="container w-full max-w-screen-lg mx-auto px-5 xl:px-0 py-[80px]">
+        <div>
+            {{ partial "image" (dict "Src" .image_mobile "Alt" "Banner image" "Loading" "eager" "Class" "w-full h-auto md:hidden" "DisplayMD" "780x" ) }}
+            {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "w-full h-auto hidden md:block" "DisplayLG" "1200x" ) }}
+        </div>
+    </div>
+</section>
+{{- end }}
+{{- end }}

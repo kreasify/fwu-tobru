@@ -1,0 +1,37 @@
+{{- define "main" }}
+<div class="page__single pt-[108px] overflow-hidden bg-[#F9FAFB]">
+    <section class="hero-section">
+        <div class="aspect-w-[175] aspect-h-[212] md:aspect-w-[16] md:aspect-h-[9] lg:aspect-w-3 lg:aspect-h-1">
+            <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/vehicle-header-bg.webp')]">
+                <div class="h-full bg-black/60">
+                    <div class="container w-full h-full max-w-screen-xl mx-auto px-5 xl:px-0 pb-[80px]">
+                        <div class="w-full h-full flex items-end">
+                            <div class="w-full flex flex-wrap justify-between items-center">
+                                <div class="flex-1">
+                                    <div class="lg:w-[90%]">
+                                        {{- with .Title }}
+                                        <h1
+                                            class="text-white text-[3rem] md:text-[4rem] lg:text-[4.75rem] font-extrabold font-heading uppercase leading-none">
+                                            {{ . | safeHTML }}
+                                        </h1>
+                                        {{- end }}
+                                    </div>
+                                </div>
+                                <div class="w-[286px] flex-none">
+                                    <img class="w-full h-auto" src="/images/home-section-1-hotline.png" alt="hotline">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container w-full h-full max-w-screen-lg mx-auto px-5 xl:px-0 py-[120px]">
+        <div class="text-center text-3xl text-black font-bold">
+            <p><a class="text-black hover:text-primary" href="/">Zurück zur Homepage</a></p>
+        </div>
+    </div>
+</div>
+{{- end }}
