@@ -23,7 +23,7 @@
                   </div>
                   <h1
                     class="text-white text-[3rem] md:text-[4rem] lg:text-[4.75rem] font-extrabold font-heading uppercase leading-none">
-                    {{ replace .Title "Einsaetze-" "" }}</h1>
+                    {{ replaceRE "(?i)einsaetze-" "" .Title }}</h1>
                   {{- else }}
                   <div>
                     <a class="flex items-center space-x-[5px] text-2xl md:text-[2rem] lg:text-[2.5rem] text-primary font-bold font-body uppercase leading-none"
