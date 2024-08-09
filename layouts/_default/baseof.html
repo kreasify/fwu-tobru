@@ -2,7 +2,7 @@
 <html lang="{{ .Site.LanguageCode | default `en-US` }}">
 {{- partial "head/head.html" . }}
 
-<body>
+<body x-data="themeToggle()" :data-theme="current" x-init="init()">
 
   {{- partial "header/navbar-top.html" . }}
   {{- partial "header/header.html" . }}

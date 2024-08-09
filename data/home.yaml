@@ -6,7 +6,7 @@
 hero_section:
   enable: true
   title: "Feuerwehr Urdorf"
-  image_bg: "assets/images/home-section-1-bg.png"
+  image_bg: "assets/images/home-hero-section.png"
   image_bg_mobile: assets/images/home-mobile-section-1-bg.jpg
   image: "assets/images/home-section-1-hotline.png"
 

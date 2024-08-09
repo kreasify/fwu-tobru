@@ -1,0 +1,18 @@
+/* purgecss start ignore */
+:root {
+    --primary: #92B87C;
+}
+
+[data-theme="blue"] {
+    --primary: #000080;
+}
+
+[data-theme="lemon"] {
+    --primary: #E3FF00;
+}
+
+[data-theme="red"] {
+    --primary: #FF0000;
+}
+
+/* purgecss end ignore */

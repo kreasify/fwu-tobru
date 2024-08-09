@@ -5,21 +5,23 @@
   {{ partial "page-list-header.html" $include_dict }}
   {{ else }}
   <section class="hero-section">
-    <div class="aspect-w-11 aspect-h-3">
+    <div class="aspect-w-[175] aspect-h-[212] md:aspect-w-[16] md:aspect-h-[9] lg:aspect-w-11 lg:aspect-h-3">
       <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/news-section-1-bg.webp')]">
         <div class="h-full bg-black/60">
           <div class="container w-full h-full max-w-screen-xl mx-auto px-5 xl:px-0 pb-[80px]">
             <div class="w-full h-full flex items-end">
-              <div class="w-full flex flex-wrap justify-between items-center">
+              <div class="w-full flex flex-col md:flex-row justify-between md:items-center">
                 <div class="flex-1">
                   {{- with .Title }}
-                  <h1 class="text-white lg:text-[6.625rem] font-extrabold font-heading uppercase leading-none">
+                  <h1
+                    class="text-white text-[3rem] md:text-[4.5rem] lg:text-[6.625rem] font-extrabold font-heading uppercase leading-none mb-7 lg:mb-0">
                     {{ . | safeHTML }}
                   </h1>
                   {{- end }}
                 </div>
-                <div class="w-[286px] flex-none">
-                  <img class="w-full h-auto" src="/images/home-section-1-hotline.png" alt="hotline">
+                <div class="w-[184px] md:w-[240px] lg:w-[286px] flex-none text-primary">
+                  {{- partial "svg/hotline.svg" (dict "class" "w-[184px] md:w-[240px] lg:w-[286px] h-auto text-current")
+                  }}
                 </div>
               </div>
             </div>
@@ -31,20 +33,115 @@
   {{- end }}
 
   <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 py-[80px]">
-    <div class="grid grid-cols-12 lg:gap-x-6 xl:gap-x-10 gap-y-6 lg:gap-y-10 mb-10">
-      {{- $section := .Params.page_section }}
-      {{- $paginator := .Paginate .Data.Pages }}
+    {{- range .Data.Terms.Alphabetical.Reverse }}
+    <div class="mb-[56px] last:mb-0">
+      <section class="news-slider-section overflow-hidden">
+        <div x-data="{ 
+          init() {
+            new Splide(this.$refs.newsslider, {
+              perPage  : 3,
+              breakpoints: {
+                  640: {
+                      perPage: 1,
+                  },
+              },
+              gap: '40px',
+              padding: { left: '0.5rem', right: '0.5rem' },
+              arrows: true,
+              pagination: false,
+              classes: {
+                  arrows: 'splide__arrows',
+                  arrow : 'splide__arrow',
+                  prev  : 'splide__arrow--prev news-slider__arrow-prev',
+                  next  : 'splide__arrow--next news-slider__arrow-next',
+                  pagination: 'splide__pagination news-slider__pagination',
+                  page      : 'splide__pagination__page news-slider__page',
+              },
+              }).mount()
+            },
+        }">
 
-      {{- range $index, $el := $paginator.Pages }}
-      {{- $include_dict := dict "Params" .Params }}
-      {{- if eq .Section "mission" }}
-      {{ partial "mission-card.html" $include_dict }}
-      {{- else }}
-      {{ partial "news-card.html" $include_dict }}
-      {{- end }}
-      {{- end }}
+          <div class="splide" x-ref="newsslider">
+            <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 mb-10 md:hidden">
+              <div class="flex items-center space-x-5">
+                <div>
+                  <h3 class="text-black text-[2.25rem] font-bold uppercase mb-[10px]">{{- .Page.Title }}</h3>
+                  <div class="w-[56px] h-[3px] bg-primary"></div>
+                </div>
+                <div class="mb-[6px]">
+                  <a class="text-xl text-primary font-bold leading-[1.2]" href="{{ .Page.RelPermalink }}">Alle ({{
+                    .Count }})</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col pl-3">
+              <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 mt-10 md:mt-0 order-2 md:order-1">
+                <div class="md:flex md:justify-between md:items-center mb-10">
+                  <div class="flex-1 hidden md:block">
+                    <div class="flex items-center space-x-5">
+                      <div>
+                        <h3 class="text-black text-[2.25rem] font-bold uppercase mb-[10px]">{{- .Page.Title }}</h3>
+                        <div class="w-[56px] h-[3px] bg-primary"></div>
+                      </div>
+                      <div class="mb-[6px]">
+                        <a class="text-xl text-primary font-bold leading-[1.2]" href="{{ .Page.RelPermalink }}">Alle({{
+                          .Count }})</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative w-[106px] flex-none">
+                    <div class="splide__arrows"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="pl-[calc((100%_-_1200px)_/_2)] order-1 md:order-2">
+                <div class="splide__track news-slider-track">
+                  <ul class="splide__list">
+                    {{- $posts := .Pages.ByTitle }}
+                    {{- range $index, $post := first 9 $posts }}
+                    <li class="splide__slide pb-6">
+                      <div
+                        class="h-full rounded-[10px] shadow-[0px_10px_20.8px_-3px_rgba(0,0,0,0.1)] bg-white relative">
+                        <div class="aspect-w-3 aspect-h-2">
+                          <div class="absolute top-0 left-0 w-full h-full rounded-t-[10px] overflow-hidden">
+                            {{- if $post.Params.image_cover }}
+                            {{- partial "image" (dict "Src" $post.Params.image_cover "Alt" "Slider image"
+                            "Loading"
+                            "eager"
+                            "Class"
+                            "w-full h-auto" "Command" "Fill"
+                            "Size" "420x280" ) }}
+                            {{- else }}
+                            <img src="/images/news-cover.webp" loading="eager" decoding="async" alt="Slider image"
+                              class=" w-full h-auto img" width="420" height="280">
+                            {{- end }}
+                          </div>
+                        </div>
+                        <div class="py-6 px-[25px]">
+                          {{ partial "card-time.html" $post }}
+                          <div>
+                            <a class="before:absolute before:content-[''] before:top-0 before:left-0 before:w-full before:h-full"
+                              href="{{ $post.RelPermalink }}">
+                              <h3
+                                class="text-[#101010] text-[1.375rem] font-heading font-semibold leading-[1.025] mb-2">
+                                {{ $post.Title | safeHTML }}</h3>
+                            </a>
+                            <p class="text-gray-600 leading-normal mb-0">{{ $post.Params.description | safeHTML }}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    {{- end }}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    {{ partial "pagination-total-posts.html" . }}
+    {{- end }}
   </div>
 </div>
 {{- end }}

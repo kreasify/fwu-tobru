@@ -91,11 +91,11 @@ module.exports = {
         xl: "1200px",
         // => @media (min-width: 1280px) { ... }
 
-        "2xl": "1536px",
+        "2xl": "1920px",
         // => @media (min-width: 1536px) { ... }
       },
       colors: {
-        primary: "#92B87C",
+        primary: 'var(--primary)',
         secondary: "#C4B5F0",
         tertiary: "#E1E3D3",
         blue: "#1062FD",

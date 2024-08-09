@@ -15,7 +15,7 @@
                     {{- range .contact }}
                     <div
                         class="flex items-center space-x-5 p-6 mb-5 last:mb-0 bg-white shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),_0px_4px_6px_rgba(0,0,0,0.05)] rounded-[12px]">
-                        <div class="w-[48px] flex-none">
+                        <div class="w-[48px] flex-none text-primary">
                             {{- with .icon }}
                             {{ partial (printf "svg/%s.svg" .) (dict "class" "w-[48px] h-[48px] text-current") }}
                             {{- end }}

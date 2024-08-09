@@ -3,14 +3,9 @@
 {{- $collapse := resources.Get "js/vendor/collapse/dist/cdn.min.js" }}
 {{- $persist := resources.Get "js/vendor/persist/dist/cdn.min.js" }}
 {{- $splide := resources.Get "js/vendor/splide/dist/js/splide.min.js" }}
+{{- $theme := resources.Get "js/theme-toggle.js" }}
 
 <!-- Combine JS -->
-{{- if .IsHome }}
-  {{- $js := slice $splide $persist $collapse $alpine | resources.Concat "js/main.js" }}
-  {{- $js_min := $js | resources.Minify }}
-  <script defer src="{{ $js_min.RelPermalink }}"></script>
-{{- else }}
-  {{- $js := slice $splide $persist $collapse $alpine | resources.Concat "js/main.js" }}
-  {{- $js_min := $js | resources.Minify }}
-  <script defer src="{{ $js_min.RelPermalink }}"></script>
-{{- end }}
+{{- $js := slice $splide $persist $collapse $alpine $theme | resources.Concat "js/main.js" }}
+{{- $js_min := $js | resources.Minify }}
+<script defer src="{{ $js_min.RelPermalink }}"></script>

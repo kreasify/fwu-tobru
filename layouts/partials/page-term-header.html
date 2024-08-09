@@ -8,7 +8,7 @@
         {{- $image_src := replace .image_bg "assets/" "" }}
         {{- if fileExists (add `assets/` (string $image_src)) }}
         {{- $image_bg:= resources.Get $image_src }}
-        {{- $image_resize:= $image_bg.Resize "1540x webp q100" }}
+        {{- $image_resize:= $image_bg.Resize "1920x webp q100" }}
         <div class="hero-section__bg w-full h-full bg-cover bg-no-repeat bg-center bg-[url('{{ $image_resize.RelPermalink }}')]"
             style="background-image: url('{{ $image_resize.RelPermalink }}')">
             {{- end }}

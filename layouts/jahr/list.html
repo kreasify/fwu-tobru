@@ -5,21 +5,23 @@
   {{ partial "page-list-header.html" $include_dict }}
   {{ else }}
   <section class="hero-section">
-    <div class="aspect-w-11 aspect-h-3">
+    <div class="aspect-w-[175] aspect-h-[212] md:aspect-w-[16] md:aspect-h-[9] lg:aspect-w-11 lg:aspect-h-3">
       <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/news-section-1-bg.webp')]">
         <div class="h-full bg-black/60">
           <div class="container w-full h-full max-w-screen-xl mx-auto px-5 xl:px-0 pb-[80px]">
             <div class="w-full h-full flex items-end">
-              <div class="w-full flex flex-wrap justify-between items-center">
+              <div class="w-full flex flex-col md:flex-row justify-between md:items-center">
                 <div class="flex-1">
                   {{- with .Title }}
-                  <h1 class="text-white lg:text-[6.625rem] font-extrabold font-heading uppercase leading-none">
+                  <h1
+                    class="text-white text-[3rem] md:text-[4.5rem] lg:text-[6.625rem] font-extrabold font-heading uppercase leading-none mb-7 lg:mb-0">
                     {{ . | safeHTML }}
                   </h1>
                   {{- end }}
                 </div>
-                <div class="w-[286px] flex-none">
-                  <img class="w-full h-auto" src="/images/home-section-1-hotline.png" alt="hotline">
+                <div class="w-[184px] md:w-[240px] lg:w-[286px] flex-none text-primary">
+                  {{- partial "svg/hotline.svg" (dict "class" "w-[184px] md:w-[240px] lg:w-[286px] h-auto text-current")
+                  }}
                 </div>
               </div>
             </div>
@@ -67,7 +69,8 @@
                   <div class="w-[56px] h-[3px] bg-primary"></div>
                 </div>
                 <div class="mb-[6px]">
-                  <a class="text-xl text-primary font-bold leading-[1.2]" href="{{ .Page.RelPermalink }}">Alle ({{ .Count }})</a>
+                  <a class="text-xl text-primary font-bold leading-[1.2]" href="{{ .Page.RelPermalink }}">Alle ({{
+                    .Count }})</a>
                 </div>
               </div>
             </div>
@@ -82,7 +85,8 @@
                         <div class="w-[56px] h-[3px] bg-primary"></div>
                       </div>
                       <div class="mb-[6px]">
-                        <a class="text-xl text-primary font-bold leading-[1.2]" href="{{ .Page.RelPermalink }}">Alle({{ .Count }})</a>
+                        <a class="text-xl text-primary font-bold leading-[1.2]" href="{{ .Page.RelPermalink }}">Alle({{
+                          .Count }})</a>
                       </div>
                     </div>
                   </div>
@@ -127,4 +131,5 @@
     </div>
     {{- end }}
   </div>
-  {{- end }}
+</div>
+{{- end }}

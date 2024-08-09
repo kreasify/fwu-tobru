@@ -80,20 +80,28 @@
                                 {{- end }}
                             </li>
                             {{- end }}
+                            <li class="hidden lg:flex items-center pl-4 mb-0">
+                                {{- partial "header/theme-toggle.html" . }}
+                            </li>
                         </ul>
                     </nav>
                 </div>
-                <div class="nav__toggle w-6 flex-none flex items-center justify-end lg:hidden">
-                    <button @click="sideNav = !sideNav" name="menu"
-                        class="text-black cursor-pointer border-none outline-none focus:outline-none focus:bg-transparent transition-all duration-300 ease-[ease] z-10">
-                        <svg class="fill-current transition duration-300 ease-in-out transform" width="22" height="24">
-                            <line class="stroke-current stroke-2" id="top" x1="0"
-                                x2="22" y1="6" y2="6"></line>
-                            <line class="stroke-current stroke-2" id="middle" x1="0" x2="22" y1="12" y2="12">
-                            </line>
-                            <line class="stroke-current stroke-2" id="bottom" x1="0" x2="22" y1="18" y2="18"></line>
-                        </svg>
-                    </button>
+                <div class="flex items-center justify-end lg:hidden">
+                    <div class="flex items-center pr-3">
+                        {{- partial "header/theme-toggle.html" . }}
+                    </div>
+                    <div class="nav__toggle w-6 flex items-center justify-end">
+                        <button @click="sideNav = !sideNav" name="menu"
+                            class="text-black cursor-pointer border-none outline-none focus:outline-none focus:bg-transparent transition-all duration-300 ease-[ease] z-10">
+                            <svg class="fill-current transition duration-300 ease-in-out transform" width="22" height="24">
+                                <line class="stroke-current stroke-2" id="top" x1="0"
+                                    x2="22" y1="6" y2="6"></line>
+                                <line class="stroke-current stroke-2" id="middle" x1="0" x2="22" y1="12" y2="12">
+                                </line>
+                                <line class="stroke-current stroke-2" id="bottom" x1="0" x2="22" y1="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
