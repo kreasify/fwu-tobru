@@ -16,21 +16,25 @@ metaDataFormat: yaml
 summaryLength: 8
 googleAnalytics: "NONE" # example : UA-123-45
 permalinks:
-  years: "/year/:slug/"
+  pages: "/:slug/"
+  page: /:slug/
+  news: "/news/:slug/"
   page:
-    pages: "/:slug/"
-    page: /:slug/
-    blog: "/:slug/"
-    news: "/news/:slug/"
-    mission: "/einsaetze/:slug/"
+    mission: "/einsatze/:slug/"
   section:
-    mission: "/einsaetze/"
-    news: "/news/"
+    mission: "/einsatze/"
+  term:
+    years: "/year/:slug/"
+    jahr: "/einsaetze/:slug/"
+  taxonomy:
+    years: "/year/"
+    jahr: "/einsaetze/"
 taxonomies:
   tag: tags
   category: categories
   author: authors
   year: years
+  jahr: jahr
 imaging:
   quality: 100
 build:

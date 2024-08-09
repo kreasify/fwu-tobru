@@ -3,7 +3,7 @@ title: "Personentransporter PTF 2"
 description: "Personentransporter PTF 2"
 date: 2024-07-01T06:00:00+00:00
 slug: "ptf2"
-image_cover: "assets/images/home-vehicle-3.jpg"
+image_cover: "assets/images/home-vehicle-4.png"
 specification:
     vehicle_type: "Mercedes Benz Vito"
     radio_name: "Uro PTF2"

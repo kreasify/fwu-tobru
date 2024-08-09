@@ -3,14 +3,6 @@
 {{- with $section }}
 {{- if .enable }}
 <div class="pt-[80px] pb-[56px]">
-    {{/*  {{- range .years }}
-    {{- $year := . | default "2024" }}
-    <div class="mb-[56px] last:mb-0">
-        {{- $include_dict := dict "year" $year }}
-        {{ partial "mission-card-slider.html" $include_dict }}
-    </div>
-    {{- end }}  */}}
-
     {{- $posts := where site.RegularPages "Type" "mission" }}
     {{- $years := slice }}
     {{- range $posts }}

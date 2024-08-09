@@ -2,6 +2,12 @@ main:
   - name: Home
     url: "/"
     weight: 10
+  - name: News
+    url: "/news/"
+    weight: 11
+  - name: Einsätze
+    url: "/einsaetze/"
+    weight: 12
   - name: Über Uns
     url: "#"
     weight: 20
@@ -29,18 +35,15 @@ main:
     parent: "Über Uns"
     url: "/faq/"
     weight: 50
-  - name: News
-    url: "/news/"
-    weight: 30
-  - name: Einsätze
-    url: "/einsaetze/"
-    weight: 40
   - name: Extern
     url: "#"
     weight: 50
   - name: Verein
     url: "https://feuerwehrvereinurdorf.ch/"
     weight: 60
+  - name: Gemeinde
+    url: "https://www.urdorf.ch/"
+    weight: 61
   - name: Mitmachen
     url: "/anmeldung/"
     params:
@@ -62,10 +65,6 @@ main:
     parent: "Extern"
     url: "https://www.feukos.ch/"
     weight: 40
-  - name: Gemeinde Urdorf
-    parent: "Extern"
-    url: "https://www.urdorf.ch/"
-    weight: 50
   - name: Jugendfeuerwehr Bezirk Dietikon
     parent: "Extern"
     url: "https://lodur-zh.ch/jfw-dietikon/"
@@ -79,15 +78,15 @@ footer_left:
   - name: Home
     url: "/"
     weight: 10
-  - name: Über Uns
-    url: "ueber"
-    weight: 20
   - name: News
     url: "/news/"
     weight: 30
   - name: Einsätze
     url: "/einsaetze/"
     weight: 40
+  - name: Mitmachen
+    url: "/anmeldung/"
+    weight: 20
 
 footer_center:
   - name: Impressum

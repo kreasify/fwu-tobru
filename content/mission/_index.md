@@ -1,7 +1,7 @@
 ---
 title: "Einsätze"
 description: "Einsätze"
-slug: "einsaetze"
+slug: "einsatze"
 sections:
   - template: page-header-section
     enable: true

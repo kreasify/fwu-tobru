@@ -18,6 +18,14 @@ feuerwehr@urdorf.ch
 ## Vertretungsberechtigte Personen
 
 René Kern, Kommandant
+
+## Webanalyse
+
+Wir benutzen [Pirsch](https://pirsch.io/) zur Webanalyse. Pirsch ist: "Datenschutzfreundliche Web Analytics, entwickelt und gehostet in Deutschland – leistungsstark, ohne Cookies und vollständig konform mit DSGVO, CCPA und PECR."
+
+## Formulare
+
+Formulare werden über [Form Data](https://form-data.com/) übermittelt. Siehe [Privacy policy](https://form-data.com/pages/legal/privacy-policy) von Form Data um mehr zu erfahren.
  
 ## Haftungsausschluss
 

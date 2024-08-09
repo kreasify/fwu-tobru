@@ -3,7 +3,7 @@ title: "Verkehrsfahrzeug VKF"
 description: "Verkehrsfahrzeug VKF"
 date: 2024-07-01T06:00:00+00:00
 slug: "vkf"
-image_cover: "assets/images/home-vehicle-3.jpg"
+image_cover: "assets/images/home-vehicle-5.png"
 specification:
     vehicle_type: "Mercedes Benz 310"
     radio_name: "Uro VA"
