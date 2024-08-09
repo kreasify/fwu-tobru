@@ -1,4 +1,4 @@
-<button id="themeToggleBtn" type="button" aria-label="Toggle Theme" title="Toggle Theme"
+<button type="button" @click="toggleTheme()" :aria-label="'Toggle ' + nextTheme" :title="'Toggle ' + nextTheme"
     class="toggle-theme text-primary">
     <svg class="text-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

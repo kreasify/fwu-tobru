@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode | default `en-US` }}">
 {{- partial "head/head.html" . }}
+{{- partial "head/set-theme.html" . }}
 
-<body x-data="themeToggle()" :data-theme="current" x-init="init()">
-
+<body>
   {{- partial "header/navbar-top.html" . }}
   {{- partial "header/header.html" . }}
   {{- block "main" . }}{{ end }}

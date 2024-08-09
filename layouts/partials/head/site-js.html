@@ -6,6 +6,7 @@
 {{- $theme := resources.Get "js/theme-toggle.js" }}
 
 <!-- Combine JS -->
-{{- $js := slice $splide $persist $collapse $alpine $theme | resources.Concat "js/main.js" }}
+{{- $js := slice $splide $persist $collapse $alpine | resources.Concat "js/main.js" }}
 {{- $js_min := $js | resources.Minify }}
+<script defer src="{{ $theme.RelPermalink }}"></script>
 <script defer src="{{ $js_min.RelPermalink }}"></script>
