@@ -88,17 +88,14 @@
                                 {{- end }}
                             </li>
                             {{- end }}
-                            <li class="hidden lg:flex items-center pl-4 mb-0">
-                                {{- partial "header/theme-toggle.html" . }}
-                            </li>
                         </ul>
                     </nav>
                 </div>
-                <div class="flex items-center justify-end lg:hidden">
-                    <div class="flex items-center pr-3 relative z-10">
+                <div class="flex items-center justify-end">
+                    <div class="flex items-center pr-3 lg:pr-0 lg:pl-4 relative z-10">
                         {{- partial "header/theme-toggle.html" . }}
                     </div>
-                    <div class="nav__toggle w-6 flex items-center justify-end">
+                    <div class="nav__toggle w-6 flex items-center justify-end lg:hidden">
                         <button @click="sideNav = !sideNav" name="menu"
                             class="text-black cursor-pointer border-none outline-none focus:outline-none focus:bg-transparent transition-all duration-300 ease-[ease] z-10">
                             <svg class="fill-current transition duration-300 ease-in-out transform" width="22" height="24">
