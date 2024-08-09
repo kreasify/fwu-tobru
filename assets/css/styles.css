@@ -14,6 +14,12 @@
     zoom: 0.87;
 } */
 
+@media (min-width: 1900px) {
+    html {
+        zoom: 1.5;
+    }
+}
+
 .menu__item-link.button {
     @apply w-[147px] h-[40px] text-primary text-base font-bold font-body rounded-[30px] inline-flex justify-center items-center border border-solid border-primary ml-4;
 }

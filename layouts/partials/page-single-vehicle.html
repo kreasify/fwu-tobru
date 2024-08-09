@@ -1,71 +1,154 @@
-{{- $params := .Params }}
-{{- with $params }}
-<main class="py-[80px]">
+<main x-data="{ open: false }" class="py-[80px]">
     <div class="flex flex-col lg:flex-row lg:space-x-[40px] xl:space-x-[60px] space-y-10 lg:space-y-0">
         <div class="w-full lg:w-2/5 pt-4">
-            <div class="aspect-w-1 aspect-h-1">
+            <div @click="open = true" class="aspect-w-1 aspect-h-1 mb-3">
                 <div class="absolute top-0 left-0 w-full h-full rounded-[20px] overflow-hidden">
-                    {{ partial "image" (dict "Src" .image_cover "Alt" "Slider image"
-                    "Loading"
-                    "eager"
-                    "Class"
-                    "w-full h-auto" "Command" "Fill"
-                    "Size" "620x620" ) }}
+                    {{ partial "image" (dict "Src" .Params.image_cover "Alt" "Slider image" "Loading" "eager" "Class" "w-full h-auto" "Command" "Fill" "Size" "620x620" ) }}
                 </div>
             </div>
+            {{- if .Params.gallery_images }}
+            <div class="grid grid-cols-12 gap-3">
+                {{- range .Params.gallery_images }}
+                <div class="col-span-3">
+                    <div @click="open = true" class="aspect-w-1 aspect-h-1">
+                        <div class="absolute top-0 left-0 w-full h-full rounded-[6px] overflow-hidden">
+                            {{ partial "image" (dict "Src" . "Alt" "Slider image"
+                            "Loading"
+                            "eager"
+                            "Class"
+                            "w-full h-auto" "Command" "Fill"
+                            "Size" "420x420" ) }}
+                        </div>
+                    </div>
+                </div>
+                {{- end }}
+            </div>
+            {{- end }}
         </div>
         <div class="w-full lg:w-3/5">
-            <table class="w-full border border-solid border-gray-300 border-collapse shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),_0px_10px_10px_rgba(0,0,0,0.04)]">
+            <table
+                class="w-full border border-solid border-gray-300 border-collapse shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),_0px_10px_10px_rgba(0,0,0,0.04)]">
                 <tbody>
-                    {{- with .specification }}
+                    {{- with .Params.specification }}
                     <tr>
                         <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Fahrzeugtyp</td>
-                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .vehicle_type }}</td>
+                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .vehicle_type
+                            }}</td>
                     </tr>
                     <tr>
                         <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Funkname</td>
-                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .radio_name }}</td>
+                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .radio_name
+                            }}</td>
                     </tr>
                     <tr>
                         <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Jahrgang</td>
-                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .vintage }}</td>
+                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .vintage }}
+                        </td>
                     </tr>
                     <tr>
                         <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Aufbau</td>
-                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .construction }}</td>
+                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .construction
+                            }}</td>
                     </tr>
                     <tr>
                         <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Leistung</td>
-                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .perfomance }}</td>
+                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .perfomance
+                            }}</td>
                     </tr>
                     <tr>
                         <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Getriebe</td>
-                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .transmission }}</td>
+                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .transmission
+                            }}</td>
                     </tr>
                     <tr>
                         <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Besatzung</td>
                         <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .crew }}</td>
                     </tr>
                     <tr>
-                        <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Gesamtgewicht</td>
-                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .total_weight }}</td>
+                        <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Gesamtgewicht
+                        </td>
+                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .total_weight
+                            }}</td>
                     </tr>
                     <tr>
-                        <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Abmessungen (LxBxH)</td>
-                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .dimensions }}</td>
+                        <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Abmessungen
+                            (LxBxH)</td>
+                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .dimensions
+                            }}</td>
                     </tr>
                     <tr>
                         <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">Wassertank</td>
-                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .water_tank }}</td>
+                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .water_tank
+                            }}</td>
                     </tr>
                     <tr>
-                        <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4 align-top">Pumpen</td>
-                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .pump | markdownify }}</td>
+                        <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4 align-top">Pumpen
+                        </td>
+                        <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .pump |
+                            markdownify }}</td>
                     </tr>
                     {{- end }}
                 </tbody>
             </table>
         </div>
     </div>
+
+    {{ if .Params.gallery_images }}
+    <div x-cloak x-show="open" class="fixed h-screen inset-0 bg-white flex items-center justify-center z-50"
+        @click.self="open = false">
+        <div class="relative w-[94%] lg:w-full max-w-[840px] rounded-lg">
+            <button @click="open = false"
+                class="absolute -top-12 right-0 w-8 h-8 bg-black text-gray-200 hover:text-gray-400 flex justify-center items-center">
+                <span class="text-3xl leading-[32px]">
+                    <svg class="w-6 h-6 fill-current text-current" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 384 512">
+                        <path
+                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                    </svg>
+                </span>
+            </button>
+            <div x-data="{ 
+            init() {
+              new Splide(this.$refs.galleries, {
+                type   : 'loop',
+                perPage  : 1,
+                breakpoints: {
+                    640: {
+                        perPage: 1,
+                    },
+                },
+                gap: '2rem',
+                arrows: true,
+                pagination: false,
+                classes: {
+                    arrows: 'splide__arrows',
+                    arrow : 'splide__arrow',
+                    prev  : 'splide__arrow--prev gallery__arrow--prev left-4',
+                    next  : 'splide__arrow--next gallery__arrow--next right-4',
+                    pagination: 'splide__pagination gallery__pagination',
+                    page      : 'splide__pagination__page gallery__page',
+                },
+                }).mount()
+              },
+          }">
+                <div x-ref="galleries" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            {{- range .Params.gallery_images }}
+                            <li class="splide__slide">
+                                <div class="aspect-w-16 aspect-h-9">
+                                    <div class="absolute w-full h-full top-0 left-0">
+                                        {{ partial "image" (dict "Src" . "Alt" "Slider image" "Loading" "eager"
+                                        "Class" "w-full h-auto" "Command" "Fill" "Size" "880x495" ) }}
+                                    </div>
+                                </div>
+                            </li>
+                            {{- end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{- end }}
 </main>
-{{- end }}

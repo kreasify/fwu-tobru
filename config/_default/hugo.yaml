@@ -16,12 +16,13 @@ metaDataFormat: yaml
 summaryLength: 8
 googleAnalytics: "NONE" # example : UA-123-45
 permalinks:
-  pages: "/:slug/"
-  page: /:slug/
-  news: "/news/:slug/"
   page:
+    pages: "/:slug/"
+    page: /:slug/
+    news: "/news/:slug/"
     mission: "/einsatze/:slug/"
   section:
+    news: "/news/"
     mission: "/einsatze/"
   term:
     years: "/year/:slug/"

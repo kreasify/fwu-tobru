@@ -43,7 +43,7 @@ sections:
       contact: "roland.mueller@urdorf.ch"
       image: "assets/images/Section-3-Image-3.png"
       badge: "assets/images/Section-3-Badge-3.png"
-- template: page-banner-section
+- template: page-image-lightbox-section
   enable: true
   image: "assets/images/organigramm.png"
   image_mobile: "assets/images/organigramm.png"

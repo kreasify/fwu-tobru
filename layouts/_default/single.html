@@ -7,23 +7,22 @@
     {{- end }}
 
     <div class="container w-full h-full max-w-screen-lg mx-auto px-5 xl:px-0 pb-[80px]">
-        {{- $include_dict := dict "Params" .Params }}
         {{- if eq .Section "vehicles" }}
-        {{ partial "page-single-vehicle.html" $include_dict }}
+        {{ partial "page-single-vehicle.html" . }}
         {{- else }}
         <div x-data="{ open: false }" {{ if .Params.gallery_images }} x-init="
-        document.querySelectorAll('.image-gallery').forEach(el => {
-            el.addEventListener('click', () => {
-                open = true;
-            });
-        });
-    "{{ end }}>
+                document.querySelectorAll('.image-gallery').forEach(el => {
+                    el.addEventListener('click', () => {
+                        open = true;
+                    });
+                });
+            "{{ end }}>
             <div class="page__content {{ if or (eq .Section "news") (eq .Section "mission" ) }}max-w-[840px] mx-auto{{
                 end }} py-[80px] text-gray-600">
                 {{ .Content }}
             </div>
             {{ if .Params.gallery_images }}
-            <div x-show="open" class="fixed h-screen inset-0 bg-white flex items-center justify-center z-50"
+            <div x-cloak x-show="open" class="fixed h-screen inset-0 bg-white flex items-center justify-center z-50"
                 @click.self="open = false">
                 <div class="relative w-[94%] lg:w-full max-w-[840px] rounded-lg">
                     <button @click="open = false"

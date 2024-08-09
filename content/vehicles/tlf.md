@@ -4,6 +4,12 @@ description: "Tanklöschfahrzeug TLF"
 date: 2024-07-01T06:00:00+00:00
 slug: "tlf"
 image_cover: "assets/images/home-vehicle-1.png"
+gallery_images:
+  - "assets/images/home-vehicle-1.png"
+  - "assets/images/home-vehicle-2.png"
+  - "assets/images/home-vehicle-3.jpg"
+  - "assets/images/home-vehicle-4.png"
+  - "assets/images/home-vehicle-5.png"
 specification:
     vehicle_type: "Iveco 190T36W Trakker"
     radio_name: "Uro TLF"
