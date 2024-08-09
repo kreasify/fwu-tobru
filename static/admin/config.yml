@@ -346,6 +346,7 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Cover Image", name: "image_cover", widget: "image" }
+      - { label: "Gallery Images", name: "gallery_images", widget: "list", required: false }
       - label: "Specification"
         name: "specification"
         widget: "object"
