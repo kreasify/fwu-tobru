@@ -2,7 +2,7 @@
 {{- $section := .section }}
 {{- with $section }}
 {{- if .enable }}
-<section x-data="{ open: true }" class="page-banner-section bg-white">
+<section x-data="{ open: false }" class="page-banner-section bg-white">
     <div class="container w-full max-w-screen-lg mx-auto px-5 xl:px-0 py-[80px]">
         <div @click="open = true">
             {{ partial "image" (dict "Src" .image_mobile "Alt" "Banner image" "Loading" "eager" "Class" "w-full h-auto md:hidden" "DisplayMD" "780x" ) }}
