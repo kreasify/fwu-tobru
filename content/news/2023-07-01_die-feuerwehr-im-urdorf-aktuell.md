@@ -8,4 +8,4 @@ years:
 ---
 Die Feuerwehr Urdorf wird im “Urdorf Aktuell” in der [Ausgabe vom Juni 2023](https://www.urdorf.ch/_docn/4510532/Urdorf_aktuell_Juni_2023_Web_Version.pdf) vorgestellt.
 
-![Urdorf Aktuell Juni 2023](urdorf-aktuell-juni-2023.png)
+![Urdorf Aktuell Juni 2023](news/urdorf-aktuell-juni-2023.png)

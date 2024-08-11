@@ -5,7 +5,7 @@
         {{- with .contact }}
         {{- range $index, $contact := . }}
         <div class="flex items-center space-x-[10px]">
-            <div class="w-[24px] flex-none text-white">
+            <div class="w-[24px] flex-none text-secondary-text">
                 {{- with .icon }}
                 {{ partial (printf "svg/%s.svg" .) (dict "class" "w-[24px] h-[24px] text-current fill-current")
                 }}
@@ -13,13 +13,13 @@
             </div>
             <div class="flex-1">
                 {{- if eq .icon "icon-mail" }}
-                <p class="mb-0"><a class="text-[15px] text-white font-medium leading-[2] lg:leading-[44px] mb-0"
+                <p class="mb-0"><a class="text-[15px] text-secondary-text font-medium leading-[2] lg:leading-[44px] mb-0"
                         href="mailto:{{ .title }}" target="_blank">{{ .title }}</a></p>
                 {{- else if eq .icon "icon-phone" }}
-                <p class="mb-0"><a class="text-[15px] text-white font-medium leading-[2] lg:leading-[44px] mb-0"
+                <p class="mb-0"><a class="text-[15px] text-secondary-text font-medium leading-[2] lg:leading-[44px] mb-0"
                         href="tel:118" target="_blank">{{ .title }}</a></p>
                 {{- else }}
-                <p class="text-[15px] text-white font-medium leading-[2] lg:leading-[44px] mb-0">{{ .title }}</p>
+                <p class="text-[15px] text-secondary-text font-medium leading-[2] lg:leading-[44px] mb-0">{{ .title }}</p>
                 {{- end }}
             </div>
         </div>

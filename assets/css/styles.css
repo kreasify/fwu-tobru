@@ -21,12 +21,12 @@
 }
 
 .menu__item-link.button {
-    @apply w-[147px] h-[40px] text-primary text-base font-bold font-body rounded-[30px] inline-flex justify-center items-center border border-solid border-primary ml-4;
+    @apply w-[147px] h-[40px] text-primary-text text-base font-bold font-body rounded-[30px] inline-flex justify-center items-center border border-solid border-primary ml-4;
 }
 
 .title-primary,
 .text-primer {
-    @apply text-primary;
+    @apply text-primary-text;
 }
 
 .content-toc {
@@ -105,14 +105,14 @@
 }
 
 .page__toc #TableOfContents ul li a {
-    @apply text-gray-700 hover:text-primary;
+    @apply text-gray-700 hover:text-primary-text;
 }
 
 .page__content h2:target,
 .page__content h3:target,
 .page__toc #TableOfContents ul > li > a:target,
 .page__toc #TableOfContents ul > li > ul > li > a:target {
-    @apply text-primary;
+    @apply text-primary-text;
 }
 
 /* .page__content>p ~ h2[id]::before {
@@ -126,4 +126,8 @@
 .page__content>h3[id]::before,
 .page__content>h4[id]::before {
     @apply block content-[''] h-32 -mt-32;
+}
+
+.page__content a {
+    @apply text-primary-text;
 }

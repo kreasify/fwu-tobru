@@ -9,32 +9,36 @@
                     <div class="w-[56px] h-[3px] bg-primary"></div>
                 </div>
                 <div class="mb-[6px]">
-                    <a class="text-xl text-primary font-bold leading-[1.2]" href="/einsaetze/">Alle</a>
+                    <a class="text-xl text-primary-text font-bold leading-[1.2]" href="/einsaetze/">Alle</a>
                 </div>
             </div>
         </div>
         <div class="grid grid-cols-12 md:gap-x-8 xl:gap-x-10 gap-y-10">
-            {{- $query := where site.RegularPages "Type" "mission" }}
-            {{- range $index, $card := first 9 $query }}
+            {{- $query := where site.RegularPages "Type" "einsaetze" }}
+            {{- range $index, $post := first 1 (sort $query "Title" "desc") }}
+            {{- range $index, $card := first 9 .Params.mission }}
             <div
                 class="col-span-12 md:col-span-6 lg:col-span-4 rounded-[10px] shadow-[0px_10px_20.8px_-3px_rgba(0,0,0,0.1)] bg-white">
                 <div class="py-6 px-[25px]">
-                    {{ partial "card-time.html" . }}
+                    <div class="mb-2">
+                        <span class="text-primary-text text-base leading-normal">{{ .date }}</span>
+                      </div>
                     <div>
                         <h3 class="text-[#101010] text-[1.375rem] font-heading font-semibold leading-[1.025] mb-2">
-                            {{ .Title | safeHTML }}</h3>
-                        {{- with .Params.number }}
+                            {{ .title | safeHTML }}</h3>
+                        {{- with .number }}
                         <p class="text-black leading-normal mb-0">Einsatznummer: {{ . | safeHTML }}</p>
                         {{- end }}
-                        {{- with .Params.street }}
+                        {{- with .street }}
                         <p class="text-black leading-normal mb-0">Strasse: {{ . | safeHTML }}</p>
                         {{- end }}
-                        {{- with .Params.group }}
+                        {{- with .group }}
                         <p class="text-black leading-normal mb-0">Gruppe: {{ . | safeHTML }}</p>
                         {{- end }}
                     </div>
                 </div>
             </div>
+            {{- end }}
             {{- end }}
         </div>
     </div>

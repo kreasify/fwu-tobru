@@ -1,0 +1,140 @@
+{{- define "main" }}
+<div class="page__single-mission pt-[108px] overflow-hidden bg-[#F9FAFB]">
+    <section class="hero-section">
+        <div class="aspect-w-[175] aspect-h-[212] md:aspect-w-[16] md:aspect-h-[9] lg:aspect-w-11 lg:aspect-h-3">
+            {{- if .Params.image_bg }}
+            {{- $image_src := replace .Params.image_bg "assets/" "" }}
+            {{- if fileExists (add `assets/` (string $image_src)) }}
+            {{- $image_bg:= resources.Get $image_src }}
+            {{- $image_resize:= $image_bg.Resize "1920x webp q100" }}
+            <div class="hero-section__bg w-full h-full bg-cover bg-no-repeat bg-center bg-[url('{{ $image_resize.RelPermalink }}')]"
+                style="background-image: url('{{ $image_resize.RelPermalink }}')">
+                {{- end }}
+            {{- else }}
+            <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/news-section-1-bg.webp')]">
+                {{- end }}
+                <div class="h-full bg-black/60">
+                    <div
+                        class="container w-full h-full max-w-screen-xl mx-auto px-5 xl:px-0 pb-[80px] lg:pb-[40px] xl:pb-[80px]">
+                        <div class="w-full h-full flex items-end">
+                            <div class="w-full flex flex-col md:flex-row justify-between lg:items-center">
+                                <div class="flex-1">
+                                    <div>
+                                        <a class="flex items-center space-x-[5px] text-2xl md:text-[2rem] lg:text-[2.5rem] text-primary font-bold font-body uppercase leading-none"
+                                            href="/einsaetze/">
+                                            <svg width="34" height="23" viewBox="0 0 34 23" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M0.93934 10.7714C0.353553 11.3572 0.353553 12.3069 0.93934 12.8927L10.4853 22.4386C11.0711 23.0244 12.0208 23.0244 12.6066 22.4386C13.1924 21.8528 13.1924 20.9031 12.6066 20.3173L4.12132 11.832L12.6066 3.34675C13.1924 2.76096 13.1924 1.81122 12.6066 1.22543C12.0208 0.639643 11.0711 0.639643 10.4853 1.22543L0.93934 10.7714ZM34 10.332H2V13.332H34V10.332Z"
+                                                    fill="currentcolor" />
+                                            </svg>
+                                            <span>Einsaetze</span>
+                                        </a>
+                                    </div>
+                                    <h1
+                                        class="text-white text-[3rem] md:text-[4rem] lg:text-[4.75rem] font-extrabold font-heading uppercase leading-none">
+                                        {{ .Title }}</h1>
+                                </div>
+                                <div class="w-[184px] md:w-[240px] lg:w-[286px] flex-none text-primary">
+                                    {{- partial "svg/hotline.svg" (dict "class" "w-[184px] md:w-[240px] lg:w-[286px] h-auto text-current") }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div x-data="{
+        currentPage: 1,
+        perPage: 9,
+        missions: {{ .Params.mission | jsonify }},
+        get totalPages() {
+            return Math.ceil(this.missions.length / this.perPage);
+        },
+        get paginatedMissions() {
+            const start = (this.currentPage - 1) * this.perPage; // Start index (0-based)
+            const end = Math.min(this.currentPage * this.perPage, this.missions.length); // End index
+            return {
+                mission: this.missions.slice(start, end),
+                startIndex: start + 1, // Convert to 1-based index
+                endIndex: end,
+                count: end - start // Number of missions on the current page
+            };
+        },
+        goToPage(page) {
+            if (page >= 1 && page <= this.totalPages) {
+                this.currentPage = page;
+            }
+        }
+    }" class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 py-[80px]">
+
+        <div class="mb-10">
+            <h3 class="text-black text-[2.25rem] font-bold uppercase mb-[10px]">{{ .Title }} (<span
+                    x-text="missions.length"></span>)</h3>
+            <div class="w-[56px] h-[3px] bg-primary"></div>
+        </div>
+        <div class="grid grid-cols-12 md:gap-x-10 xl:gap-x-10 gap-y-10 mb-10">
+            <template x-for="mission in paginatedMissions.mission" :key="mission.number">
+                <div
+                    class="col-span-12 md:col-span-6 lg:col-span-4 rounded-[10px] shadow-[0px_10px_20.8px_-3px_rgba(0,0,0,0.1)] bg-white">
+                    <div class="py-6 px-[25px]">
+                        <div class="mb-2">
+                            <span class="text-primary-text text-base leading-normal" x-text="mission.date"></span>
+                        </div>
+                        <div>
+                            <h3 class="text-[#101010] text-[1.375rem] font-heading font-semibold leading-[1.025] mb-2"
+                                x-text="mission.title"></h3>
+                            <p class="text-black leading-normal mb-0">Einsatznummer: <span
+                                    x-text="mission.number"></span></p>
+                            <p class="text-black leading-normal mb-0">Strasse: <span x-text="mission.street"></span></p>
+                            <p class="text-black leading-normal mb-0">Gruppe: <span x-text="mission.group"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <div class="pagination__wrapper">
+            <nav class="flex items-center justify-center mb-5">
+                <ul
+                    class="pagination flex items-center justify-center list-none text-center text-gray-600 mx-auto p-0 mb-0 border border-solid border-gray-300 rounded-[6px]">
+                    <li class="pagination__item mb-0">
+                        <button x-cloak x-show="currentPage > 1" @click="goToPage(currentPage - 1)"
+                            class="pagination__item-link flex items-center justify-center w-16 h-12 border-r border-solid border-gray-300">
+                            <svg width="11" height="18" viewBox="0 0 11 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8.40446 17.7367C7.97443 17.7366 7.56204 17.557 7.258 17.2374L.771654 10.4214C.467653 10.1019.296875 9.66856.296875 9.21672.296875 8.76488.467653 8.33154.771654 8.01199L7.258 1.19599c.14959-.16275.32852-.292561.52636-.381866C7.9822.724819 8.19499.677812 8.4103.675846 8.62561.673879 8.83914.716993 9.03843.802672 9.23772.88835 9.41877 1.01488 9.57103 1.17487c.15225.15999.27266.35025.354189999999999.55966C10.0068 1.94395 10.0478 2.16833 10.0459 2.39459 10.044 2.62084 9.99931 2.84444 9.91433 3.05234 9.82934 3.26023 9.7058 3.44826 9.55093 3.60545L4.21104 9.21672 9.55093 14.828C9.77764 15.0663 9.93202 15.3699 9.99457 15.7004 10.0571 16.0309 10.025 16.3734 9.90229 16.6848 9.77958 16.9961 9.57179 17.2622 9.30519 17.4494 9.03858 17.6367 8.72513 17.7366 8.40446 17.7367z"
+                                    fill="#6b7280"></path>
+                            </svg>
+                        </button>
+                    </li>
+                    <template x-for="page in totalPages" :key="page">
+                        <li class="pagination__item mb-0">
+                            <button @click="goToPage(page)" x-text="page"
+                                class="pagination__item-link flex items-center justify-center w-11 h-12 text-xl leading-normal border-r border-solid border-gray-300"
+                                :class="currentPage === page ? 'font-bold text-gray-700' : 'font-medium text-gray-500'"></button>
+                        </li>
+                    </template>
+                    <li class="pagination__item mb-0">
+                        <button x-cloak x-show="currentPage < totalPages" @click="goToPage(currentPage + 1)"
+                            class="pagination__item-link flex items-center justify-center w-16 h-12">
+                            <svg width="11" height="18" viewBox="0 0 11 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M2.57315 17.7367C2.25249 17.7366 1.93904 17.6367 1.67243 17.4494 1.40583 17.2622 1.19804 16.9961 1.07533 16.6848.952624 16.3734.920513 16.0309.983054 15.7004 1.04559 15.3699 1.19998 15.0663 1.42669 14.828L6.76658 9.21672 1.42669 3.60545c-.15487-.15719-.27841-.34522-.3634-.55311C.978306 2.84444.933573 2.62084.931702 2.39459.929831 2.16833.970861 1.94395 1.0524 1.73453 1.13393 1.52512 1.25434 1.33486 1.40659 1.17487c.15226-.15999.33331-.28652.5326-.372198C2.13848.716993 2.35201.673879 2.56732.675846 2.78263.677812 2.99542.724819 3.19326.814124 3.3911.903429 3.57003 1.03324 3.71962 1.19599l6.48638 6.816c.304.31955.4747.752889999999999.4747 1.20473.0.451839999999999-.1707.88518-.4747 1.20468l-6.48638 6.816C3.41558 17.557 3.00319 17.7366 2.57315 17.7367z"
+                                    fill="#6b7280"></path>
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+            <div class="text-center">
+                <p class="text-xl text-gray-600 leading-normal mb-0">Showing <strong
+                        x-text="paginatedMissions.count"></strong> of <strong x-text="missions.length"></strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+{{- end }}

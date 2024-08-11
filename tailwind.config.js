@@ -96,6 +96,8 @@ module.exports = {
       },
       colors: {
         primary: 'var(--primary)',
+        "primary-text": 'var(--primary-text)',
+        "secondary-text": 'var(--secondary-text)',
         secondary: "#C4B5F0",
         tertiary: "#E1E3D3",
         blue: "#1062FD",

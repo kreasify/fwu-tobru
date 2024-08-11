@@ -1,16 +1,17 @@
-<button id="themeToggleBtn" type="button" aria-label="Toggle Theme" title="Toggle Theme"
-    class="toggle-theme text-primary">
-    <svg class="text-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-        class="feather feather-sun">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-</button>
+<div x-data="{ openThemeChooser: false }" class="relative w-8 h-10 flex items-center justify-center">
+    <button x-on:click="openThemeChooser = ! openThemeChooser" type="button" aria-label="Toggle Theme" title="Toggle Theme"
+        class="toggle-theme text-primary">
+        <svg class="text-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+            <path fill="currentColor"
+                d="M13 11c1.334 1.393 2 2.435 2 3.125C15 15.161 14.105 16 13 16c-1.104 0-2-.84-2-1.875c0-.69.667-1.732 2-3.125M5.857.15l6.34 6.45l.016.02l.324.321a1.5 1.5 0 0 1 .11 2.006l-.103.114l-4.474 4.513a1.5 1.5 0 0 1-2.123.008L1.464 9.06a1.5 1.5 0 0 1 .007-2.12l4.472-4.45c.145-.146.313-.254.492-.327L5.144.85a.5.5 0 0 1 .713-.7m1.496 3.049a.5.5 0 0 0-.705 0L2.177 7.65a.498.498 0 0 0-.148.35h9.95a.498.498 0 0 0-.148-.35L7.353 3.2z" />
+        </svg>
+    </button>
+    <div x-cloak x-show="openThemeChooser" @click.outside="openThemeChooser = false" x-transition id="theme-chooser" class="absolute top-8 -left-[122px] xl:-left-[71px] w-[190px]">
+        <ul class="list-none pl-0 pt-3 pb-3 ml-0 bg-white shadow-lg rounded-lg">
+            <li class="text-sm cursor-pointer py-1 px-3" data-theme="green"><span class="bg-[#92B87C] inline-block w-3 h-3 rounded-[6px] mr-1"></span> Urdorf Grün</li>
+            <li class="text-sm cursor-pointer py-1 px-3" data-theme="blue"><span class="bg-[#000080] inline-block w-3 h-3 rounded-[6px] mr-1"></span> Feuerwehr Urdorf Blau</li>
+            <li class="text-sm cursor-pointer py-1 px-3" data-theme="lemon"><span class="bg-[#E3FF00] inline-block w-3 h-3 rounded-[6px] mr-1"></span> GVZ Lemon</li>
+            <li class="text-sm cursor-pointer py-1 px-3" data-theme="red"><span class="bg-[#FF0000] inline-block w-3 h-3 rounded-[6px] mr-1"></span> Feuerwehr Rot</li>
+        </ul>
+    </div>
+</div>

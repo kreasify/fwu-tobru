@@ -49,7 +49,7 @@
                                 {{- else }}
                                 <a href="{{- .URL | relURL -}}"
                                 {{- end }}
-                                    class="lg:w-full inline-flex items-center justify-between lg:justify-start text-current py-[10px] px-[15px] cursor-pointer" {{ if findRE `^http` .URL }}target="_blank" rel="noopener"{{ end }}>
+                                    class="lg:w-full inline-flex items-center justify-between lg:justify-start text-current py-[10px] px-[15px] lg:px-[10px] xl:px-[15px] cursor-pointer" {{ if findRE `^http` .URL }}target="_blank" rel="noopener"{{ end }}>
                                     {{- .Name }}
                                     <svg class="transition duration-300 ease-in-out transform lg:group-hover:-rotate-180 ml-2 mt-[2px]"
                                         :class="{'-rotate-90 lg:rotate-0': selectedMenu === {{ $index }} }" width="13" height="8"
@@ -79,7 +79,7 @@
                                 </ul>
                                 {{- else }}
                                 <a {{ if .Params.is_anchor -}}@click="sideNav = false" {{ end }}
-                                    class="menu__item-link text-current py-[10px] px-[15px] {{ with .Params.class }}{{ . }}{{ end }}"
+                                    class="menu__item-link text-current py-[10px] px-[15px] lg:px-[10px] xl:px-[15px] {{ with .Params.class }}{{ . }}{{ end }}"
                                     href="{{ .URL | relURL }}" {{ if findRE `^http` .URL }}target="_blank" rel="noopener"{{ end }}>{{ .Name }}
                                     {{- if findRE `^http` .URL }}
                                     {{- partial "svg/icon-up-right.svg" (dict "class" "inline-block w-3 h-3 ml-2 fill-current text-current") }}
