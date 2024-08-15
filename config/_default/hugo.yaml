@@ -1,6 +1,6 @@
 ---
 title: Feuerwehr Urdorf
-baseURL: https://fwu.netlify.app
+baseURL: https://fwu.netlify.app/
 languageCode: de
 defaultContentLanguage: de
 canonifyURLs: false

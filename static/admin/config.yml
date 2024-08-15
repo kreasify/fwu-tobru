@@ -182,44 +182,36 @@ collections:
     editor:
       preview: false
     files:
-      - label: "Missions List Page"
-        name: "missions"
-        file: "content/mission/_index.md"
+      - label: "Einsätze Page"
+        name: "einsatze"
+        file: "content/einsaetze/_index.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text" }
-          - { label: "Sections", name: "sections", widget: "list", fields: [
-              { label: "Template", name: "template", widget: "string" },
-              { label: "Enable", name: "enable", widget: "boolean" },
-              { label: "Title", name: "title", widget: "string", required: false },
-              { label: "Image Background", name: "image_bg", widget: "image", required: false },
-              { label: "Image", name: "image", widget: "image", required: false },
-              { label: "Years", name: "years", widget: "list", default: ["2024"] }
+          - { label: "Image Background", name: "image_bg", widget: "image" }
+          - { label: "Statistik", name: "statistik", widget: "list", fields: [
+              { label: "Year", name: "year", widget: "number" },
+              { label: "Number of Missions", name: "number_of_missions", widget: "number" }
             ]
           }
-          - { label: "Layout", name: "layout", widget: "string", default: "page-builder" }
 
   - name: "mission"
     label: "Missions"
     folder: "content/mission"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Years", name: "years", widget: "list", default: ["mission-2024"] }
-      - { label: "Number", name: "number", widget: "string" }
-      - label: "Page Header"
-        name: "page_header"
-        widget: "object"
-        fields:
-          - { label: "Enable", name: "enable", widget: "boolean" }
-          - { label: "Background Image", name: "image_bg", widget: "image" }
-          - { label: "Image", name: "image", widget: "image" }
-      - { label: "Draft", name: "draft", widget: "boolean" }
-      - { label: 'Content', name: 'body', widget: 'markdown' }
+      - { label: "Image Background", name: "image_bg", widget: "image" }
+      - { label: "Mission", name: "mission", widget: "list", fields: [
+          { label: "Mission Title", name: "title", widget: "string" },
+          { label: "Mission Description", name: "description", widget: "text" },
+          { label: "Date", name: "date", widget: "datetime" },
+          { label: "Mission Number", name: "number", widget: "string" },
+          { label: "Street", name: "street", widget: "string" },
+          { label: "Group", name: "group", widget: "string" }
+        ]
+      }
 
   - name: "newsindex"
     label: "News Index"

@@ -98,10 +98,10 @@
         <div class="pagination__wrapper">
             <nav class="flex items-center justify-center mb-5">
                 <ul
-                    class="pagination flex items-center justify-center list-none text-center text-gray-600 mx-auto p-0 mb-0 border border-solid border-gray-300 rounded-[6px]">
-                    <li class="pagination__item mb-0">
+                    class="pagination flex flex-wrap items-center justify-center list-none text-center text-gray-600 mx-auto p-0 mb-0">
+                    <li class="pagination__item mb-3 border rounded-l-[6px] border-solid border-gray-300">
                         <button x-cloak x-show="currentPage > 1" @click="goToPage(currentPage - 1)"
-                            class="pagination__item-link flex items-center justify-center w-16 h-12 border-r border-solid border-gray-300">
+                            class="pagination__item-link flex items-center justify-center w-16 h-12">
                             <svg width="11" height="18" viewBox="0 0 11 18" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -111,13 +111,13 @@
                         </button>
                     </li>
                     <template x-for="page in totalPages" :key="page">
-                        <li class="pagination__item mb-0">
+                        <li class="pagination__item mb-3 border-t border-b border-r border-solid border-gray-300" :class="currentPage === 1 && page === 1 ? 'border-l' : ''">
                             <button @click="goToPage(page)" x-text="page"
-                                class="pagination__item-link flex items-center justify-center w-11 h-12 text-xl leading-normal border-r border-solid border-gray-300"
+                                class="pagination__item-link flex items-center justify-center w-11 h-12 text-xl leading-normal"
                                 :class="currentPage === page ? 'font-bold text-gray-700' : 'font-medium text-gray-500'"></button>
                         </li>
                     </template>
-                    <li class="pagination__item mb-0">
+                    <li class="pagination__item mb-3 border-t border-b border-r rounded-r-[6px] border-solid border-gray-300">
                         <button x-cloak x-show="currentPage < totalPages" @click="goToPage(currentPage + 1)"
                             class="pagination__item-link flex items-center justify-center w-16 h-12">
                             <svg width="11" height="18" viewBox="0 0 11 18" fill="none"

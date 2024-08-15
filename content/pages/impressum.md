@@ -26,6 +26,16 @@ Wir benutzen [Pirsch](https://pirsch.io/) zur Webanalyse. Pirsch ist: "Datenschu
 ## Formulare
 
 Formulare werden über [Form Data](https://form-data.com/) übermittelt. Siehe [Privacy policy](https://form-data.com/pages/legal/privacy-policy) von Form Data um mehr zu erfahren.
+
+## Cookies
+
+Es werden keine Cookies für Werbezwecke verwendet. Folgende Cookies werden benötigt:
+
+* `theme`: Speicherung der gewählten Farbe (Wird nur gesetzt, falls die Farbe gewählt wird)
+
+## Third-Party Ressourcen
+
+Ausser für die Webanalyse und die Formulare werden keine Third-Party Dienste verwendet.
  
 ## Haftungsausschluss
 

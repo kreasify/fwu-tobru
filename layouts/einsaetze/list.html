@@ -154,15 +154,20 @@
             </tr>
           </thead>
           <tbody>
-            {{- range sort .Data.Pages "Title" "desc" }}
+            {{- range .Params.statistik }}
               <tr>
-                  <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .Title }}</td>
-                  <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ len .Params.mission }}</td>
+                  <td class="w-2/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .year }}</td>
+                  <td class="w-3/5 border border-solid border-gray-300 border-collapse py-3 px-4">{{ .number_of_missions }}</td>
               </tr>
               {{- end }}
           </tbody>
       </table>
     </div>
+
+    <div class="pt-10">
+      <p>Einsätze werden einmal pro Tag automatisch aktualisiert.</p>
+    </div>
+
   </div>
 </div>
 {{- end }}

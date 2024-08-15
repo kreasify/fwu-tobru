@@ -1,0 +1,132 @@
+{{- $src_1 := .Get "src_1" }}
+{{- $src_2 := .Get "src_2" }}
+{{- $src_3 := .Get "src_3" }}
+{{- $src_4 := .Get "src_4" }}
+{{- $src_5 := .Get "src_5" }}
+{{- $src_6 := .Get "src_6" }}
+{{- $src_7 := .Get "src_7" }}
+{{- $src_8 := .Get "src_8" }}
+{{- $alt_1 := .Get "alt_1" }}
+{{- $alt_2 := .Get "alt_2" }}
+{{- $alt_3 := .Get "alt_3" }}
+{{- $alt_4 := .Get "alt_4" }}
+{{- $alt_5 := .Get "alt_5" }}
+{{- $alt_6 := .Get "alt_6" }}
+{{- $alt_7 := .Get "alt_7" }}
+{{- $alt_8 := .Get "alt_8" }}
+
+{{ $image_1 := resources.Get (printf "images/%s" $src_1) }}
+{{ $image_2 := resources.Get (printf "images/%s" $src_2) }}
+{{ $image_3 := resources.Get (printf "images/%s" $src_3) }}
+{{ $image_4 := resources.Get (printf "images/%s" $src_4) }}
+{{ $image_5 := resources.Get (printf "images/%s" $src_5) }}
+{{ $image_6 := resources.Get (printf "images/%s" $src_6) }}
+{{ $image_7 := resources.Get (printf "images/%s" $src_7) }}
+{{ $image_8 := resources.Get (printf "images/%s" $src_8) }}
+
+<div class="gallery-image grid grid-cols-2 gap-4">
+    <div class="grid gap-4">
+        {{- if $src_1 }}
+        {{- with $image_1 }}
+        <div class="gallery-image__item">
+            {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+            <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+                <img class="w-full max-w-full h-auto" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                    {{ with $alt_1 }}alt="{{ . }}" {{ end }}>
+            </a>
+            {{- end }}
+        </div>
+        {{- end }}
+        {{- end }}
+        {{- if $src_2 }}
+        {{- with $image_2 }}
+        <div class="gallery-image__item">
+            {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+            <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+                <img class="w-full max-w-full h-auto" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                    {{ with $alt_2 }}alt="{{ . }}" {{ end }}>
+            </a>
+            {{- end }}
+        </div>
+        {{- end }}
+        {{- end }}
+    </div>
+    <div class="grid gap-4">
+        {{- if $src_3 }}
+        {{- with $image_3 }}
+        <div class="gallery-image__item">
+            {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+            <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+                <img class="w-full max-w-full h-auto" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                    {{ with $alt_3 }}alt="{{ . }}" {{ end }}>
+            </a>
+            {{- end }}
+        </div>
+        {{- end }}
+        {{- end }}
+        {{- if $src_4 }}
+        {{- with $image_4 }}
+        <div class="gallery-image__item">
+            {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+            <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+                <img class="w-full max-w-full h-auto" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                    {{ with $alt_4 }}alt="{{ . }}" {{ end }}>
+            </a>
+            {{- end }}
+        </div>
+        {{- end }}
+        {{- end }}
+    </div>
+    <div class="grid gap-4">
+        {{- if $src_5 }}
+        {{- with $image_5 }}
+        <div class="gallery-image__item">
+            {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+            <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+                <img class="w-full max-w-full h-auto" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                    {{ with $alt_5 }}alt="{{ . }}" {{ end }}>
+            </a>
+            {{- end }}
+        </div>
+        {{- end }}
+        {{- end }}
+        {{- if $src_6 }}
+        {{- with $image_6 }}
+        <div class="gallery-image__item">
+            {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+            <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+                <img class="w-full max-w-full h-auto" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                    {{ with $alt_6 }}alt="{{ . }}" {{ end }}>
+            </a>
+            {{- end }}
+        </div>
+        {{- end }}
+        {{- end }}
+    </div>
+    <div class="grid gap-4">
+        {{- if $src_7 }}
+        {{- with $image_7 }}
+        <div class="gallery-image__item">
+            {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+            <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+                <img class="w-full max-w-full h-auto" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                    {{ with $alt_7 }}alt="{{ . }}" {{ end }}>
+            </a>
+            {{- end }}
+        </div>
+        {{- end }}
+        {{- end }}
+        {{- if $src_8 }}
+        {{- with $image_8 }}
+        <div class="gallery-image__item">
+            {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+            <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+                <img class="w-full max-w-full h-auto" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                    {{ with $alt_8 }}alt="{{ . }}" {{ end }}>
+            </a>
+            {{- end }}
+        </div>
+        {{- end }}
+        {{- end }}
+    </div>
+</div>

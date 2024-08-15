@@ -31,7 +31,9 @@
 image size, as Hugo will upscale small images */}}
 
 <div class="image-gallery my-6">
-    <img alt="{{ $alt }}" title="{{ $alt }}" src="{{ $src.RelPermalink }}" height="{{ $src.Height}}" width="{{ $src.Width }}" class="max-w-full mx-auto" />
+  <a data-fancybox="gallery" data-src="{{ $src.RelPermalink }}">
+  <img class="w-full h-auto" loading="lazy" src="{{ $src.RelPermalink }}" width="{{ $src.Width }}" height="{{ $src.Height}}" alt="{{ $alt }}">
+  </a>
 </div>
 
 {{/* Since I do image-response class, the only thing that really 

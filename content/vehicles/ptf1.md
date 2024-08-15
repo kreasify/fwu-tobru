@@ -9,7 +9,6 @@ gallery_images:
   - "assets/images/home-vehicle-2.png"
   - "assets/images/home-vehicle-3.jpg"
   - "assets/images/home-vehicle-4.png"
-  - "assets/images/home-vehicle-5.png"
 specification:
     vehicle_type: "Mercedes Benz 314 CDI"
     radio_name: "Uro PTF1"

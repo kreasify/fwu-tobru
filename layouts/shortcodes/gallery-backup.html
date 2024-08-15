@@ -1,0 +1,76 @@
+{{- $src_1 := .Get "src_1" }}
+{{- $src_2 := .Get "src_2" }}
+{{- $src_3 := .Get "src_3" }}
+{{- $src_4 := .Get "src_4" }}
+{{- $src_5 := .Get "src_5" }}
+{{- $src_6 := .Get "src_6" }}
+{{- $alt_1 := .Get "alt_1" }}
+{{- $alt_2 := .Get "alt_2" }}
+{{- $alt_3 := .Get "alt_3" }}
+{{- $alt_4 := .Get "alt_4" }}
+{{- $alt_5 := .Get "alt_5" }}
+{{- $alt_6 := .Get "alt_6" }}
+
+{{- $src_img_1 := $.Page.resources.GetMatch (printf "images/%s" $src_1)  }}
+<div class="gallery-image__style-1 grid grid-cols-12 gap-1 my-8 -mx-4 md:mx-0">
+    {{- with $src_img_1 }}
+    <div class="gallery-image__item col-span-4 aspect-w-1 aspect-h-1">
+        {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+        <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+            <img class="object-cover object-center w-full h-full" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                {{ with $alt_1 }}alt="{{ . }}" {{ end }}>
+        </a>
+        {{- end }}
+    </div>
+    {{- end }}
+    {{- with $.Page.Resources.GetMatch $src_2 }}
+    <div class="gallery-image__item col-span-4 aspect-w-1 aspect-h-1">
+        {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+        <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+            <img class="object-cover object-center w-full h-full" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                {{ with $alt_2 }}alt="{{ . }}" {{ end }}>
+        </a>
+        {{- end }}
+    </div>
+    {{- end }}
+    {{- with $.Page.Resources.GetMatch $src_3 }}
+    <div class="gallery-image__item col-span-4 aspect-w-1 aspect-h-1">
+        {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+        <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+            <img class="object-cover object-center w-full h-full" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                {{ with $alt_3 }}alt="{{ . }}" {{ end }}>
+        </a>
+        {{- end }}
+    </div>
+    {{- end }}
+    {{- with $.Page.Resources.GetMatch $src_4 }}
+    <div class="gallery-image__item col-span-4 aspect-w-1 aspect-h-1">
+        {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+        <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+            <img class="object-cover object-center w-full h-full" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                {{ with $alt_4 }}alt="{{ . }}" {{ end }}>
+        </a>
+        {{- end }}
+    </div>
+    {{- end }}
+    {{- with $.Page.Resources.GetMatch $src_5 }}
+    <div class="gallery-image__item col-span-4 aspect-w-1 aspect-h-1">
+        {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+        <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+            <img class="object-cover object-center w-full h-full" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                {{ with $alt_5 }}alt="{{ . }}" {{ end }}>
+        </a>
+        {{- end }}
+    </div>
+    {{- end }}
+    {{- with $.Page.Resources.GetMatch $src_6 }}
+    <div class="gallery-image__item col-span-4 aspect-w-1 aspect-h-1">
+        {{- with .Resize (printf "%dx%d webp" .Width .Height) }}
+        <a data-fancybox="gallery" data-src="{{ .RelPermalink }}">
+            <img class="object-cover object-center w-full h-full" loading="lazy" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                {{ with $alt_6 }}alt="{{ . }}" {{ end }}>
+        </a>
+        {{- end }}
+    </div>
+    {{- end }}
+</div>
