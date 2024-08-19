@@ -47,7 +47,7 @@
 
     <div x-data="{
         currentPage: 1,
-        perPage: 9,
+        perPage: 12,
         missions: {{ .Params.mission | jsonify }},
         get totalPages() {
             return Math.ceil(this.missions.length / this.perPage);
@@ -101,7 +101,7 @@
         <div class="grid grid-cols-12 md:gap-x-10 xl:gap-x-10 gap-y-10 mb-10">
             <template x-for="mission in paginatedMissions.mission" :key="mission.number">
                 <div
-                    class="col-span-12 md:col-span-6 lg:col-span-4 rounded-[10px] shadow-[0px_10px_20.8px_-3px_rgba(0,0,0,0.1)] bg-white">
+                    class="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 rounded-[10px] shadow-[0px_10px_20.8px_-3px_rgba(0,0,0,0.1)] bg-white">
                     <div class="py-6 px-[25px]">
                         <div class="mb-2">
                             <span class="text-primary-text text-base leading-normal" x-text="formatDate(mission.date)"></span>

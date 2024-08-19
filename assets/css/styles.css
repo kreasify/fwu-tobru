@@ -61,7 +61,7 @@
 }
 
 .splide__track.news-slider-track {
-    @apply !pr-[3rem] xl:!pr-[calc(100%_-_1200px)];
+    @apply !pr-[3rem] xl:!pr-[calc(100%_-_1200px)] 2xl:!pr-[calc(100%_-_1750px)];
 }
 
 .splide__track.news-slider-track .splide__slide {

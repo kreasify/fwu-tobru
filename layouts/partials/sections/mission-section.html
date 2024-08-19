@@ -16,9 +16,9 @@
         <div class="grid grid-cols-12 md:gap-x-8 xl:gap-x-10 gap-y-10">
             {{- $query := where site.RegularPages "Type" "einsaetze" }}
             {{- range $index, $post := first 1 (sort $query "Title" "desc") }}
-            {{- range $index, $card := first 9 .Params.mission }}
+            {{- range $index, $card := first 12 .Params.mission }}
             <div
-                class="col-span-12 md:col-span-6 lg:col-span-4 rounded-[10px] shadow-[0px_10px_20.8px_-3px_rgba(0,0,0,0.1)] bg-white">
+                class="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 rounded-[10px] shadow-[0px_10px_20.8px_-3px_rgba(0,0,0,0.1)] bg-white">
                 <div class="py-6 px-[25px]">
                     <div class="mb-2">
                         <span class="text-primary-text text-base leading-normal">{{ .date | time.Format ":date_long" }} {{ .date | time.Format ":time_short" }}</span>

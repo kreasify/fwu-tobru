@@ -45,9 +45,16 @@
             init() {
               new Splide(this.$refs.missionslider, {
                 perPage  : 3,
+                mediaQuery: 'min',
                 breakpoints: {
-                    640: {
+                    320: {
                         perPage: 1,
+                    },
+                    768: {
+                        perPage: 3,
+                    },
+                    1800: {
+                        perPage: 4,
                     },
                 },
                 gap: '40px',
