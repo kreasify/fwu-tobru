@@ -3,7 +3,7 @@
     <div class="nav bg-white z-50"
         :class="{ 'absolute w-full left-0 top-0 z-40': atTop, 'fixed w-full left-0 top-0 backdrop-blur-md transition-all duration-500 ease-[ease] delay-300 animate-fadeInDown shadow-lg z-50': !atTop }"
         x-on:scroll.window="atTop = (window.pageYOffset > 200) ? false : true;">
-        <div class="nav__container container w-full max-w-screen-xl relative mx-auto px-5 xl:px-0">
+        <div class="nav__container container w-full mx-auto px-5 xl:px-8 relative">
             <div class="nav__wrapper h-[108px] flex flex-wrap items-center justify-between">
                 <div class="nav__brand logo w-[76px] flex-none">
                     <a href="{{ .Site.BaseURL }}">

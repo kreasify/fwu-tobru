@@ -3,7 +3,7 @@
 {{- with $section }}
 {{- if .enable }}
 <section class="content-section bg-white">
-    <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 py-[80px]">
+    <div class="container w-full mx-auto px-5 xl:px-8 py-[80px]">
         <header class="max-w-[564px] mx-auto text-center mb-10">
             {{- with .title }}
             <h2 class="text-[3rem] lg:text-[4rem] text-[#091035] font-bold leading-none mb-5">{{ . | safeHTML }}</h2>
@@ -12,7 +12,8 @@
             <p class="text-base text-gray-600 font-medium leading-normal mb-0">{{ . | safeHTML }}</p>
             {{- end }}
         </header>
-        <div class="flex flex-col md:flex-row justify-center md:space-x-[30px] xl:space-x-[60px] space-y-[60px] md:space-y-0">
+        <div
+            class="flex flex-col md:flex-row justify-center md:space-x-[30px] xl:space-x-[60px] space-y-[60px] md:space-y-0">
             {{- range .teams }}
             <div>
                 <div class="w-[200px] mx-auto relative mb-5">
@@ -44,11 +45,12 @@
                     </div>
                     <div>
                         {{- with .rank }}
-                        <p class="text-base text-gray-600 font-semibold leading-[1.05] mb-1">Rang: {{ . | safeHTML }}</p>
+                        <p class="text-base text-gray-600 font-semibold leading-[1.05] mb-1">Rang: {{ . | safeHTML }}
+                        </p>
                         {{- end }}
                         {{- with .contact }}
                         <p class="mb-0">E-Mail: <a class="text-base text-gray-600 font-semibold leading-[1.05]"
-                            href="mailto:{{ . }}" target="_blank">{{ . }}</a></p>
+                                href="mailto:{{ . }}" target="_blank">{{ . }}</a></p>
                         {{- end }}
                     </div>
                 </div>

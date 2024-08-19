@@ -8,7 +8,7 @@
     <div class="aspect-w-11 aspect-h-3">
       <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/news-section-1-bg.webp')]">
         <div class="h-full bg-black/60">
-          <div class="container w-full h-full max-w-screen-xl mx-auto px-5 xl:px-0 pb-[80px]">
+          <div class="container w-full mx-auto h-full px-5 xl:px-8 pb-[80px]">
             <div class="w-full h-full flex items-end">
               <div class="w-full flex flex-wrap justify-between items-center">
                 <div class="flex-1">
@@ -19,7 +19,8 @@
                   {{- end }}
                 </div>
                 <div class="w-[184px] md:w-[240px] lg:w-[286px] flex-none text-primary">
-                  {{- partial "svg/hotline.svg" (dict "class" "w-[184px] md:w-[240px] lg:w-[286px] h-auto text-current") }}
+                  {{- partial "svg/hotline.svg" (dict "class" "w-[184px] md:w-[240px] lg:w-[286px] h-auto text-current")
+                  }}
                 </div>
               </div>
             </div>
@@ -30,7 +31,7 @@
   </section>
   {{- end }}
 
-  <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 py-[80px]">
+  <div class="container w-full mx-auto px-5 xl:px-8 py-[80px]">
     <div class="grid grid-cols-12 lg:gap-x-6 xl:gap-x-10 gap-y-6 lg:gap-y-10 mb-10">
       {{- $section := .Params.page_section }}
       {{- $paginator := .Paginate .Data.Pages }}

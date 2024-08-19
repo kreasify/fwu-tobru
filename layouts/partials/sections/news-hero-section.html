@@ -8,30 +8,33 @@
     {{- $image_bg:= resources.Get $image_src }}
     {{- $image_resize := $image_bg.Resize "1920x webp" }}
     <div
-      class="hero-section__bg w-full h-full bg-cover bg-no-repeat bg-center bg-[url('{{ $image_resize.RelPermalink }}')]" style="background-image: url('{{ $image_resize.RelPermalink }}')">
+      class="hero-section__bg w-full h-full bg-cover bg-no-repeat bg-center bg-[url('{{ $image_resize.RelPermalink }}')]"
+      style="background-image: url('{{ $image_resize.RelPermalink }}')">
       {{ else }}
-    <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/news-section-1-bg.webp')]">
-      {{- end }}
-      {{- end }}
-      <div class="h-full bg-black/60">
-        <div class="container w-full h-full max-w-screen-xl mx-auto px-5 xl:px-0 pb-[80px]">
-          <div class="w-full h-full flex items-end">
-            <div class="w-full flex flex-wrap justify-between items-center">
-              <div class="flex-1">
-                {{- if .title }}
-                <h1 class="text-white lg:text-[6.625rem] font-extrabold font-heading uppercase leading-none">{{ .title | safeHTML }}
-                </h1>
-                {{- end }}
-              </div>
-              <div class="w-[286px] flex-none">
-                {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "w-full h-auto" "DisplayMD" "360x" ) }}
+      <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/news-section-1-bg.webp')]">
+        {{- end }}
+        {{- end }}
+        <div class="h-full bg-black/60">
+          <div class="container w-full mx-auto h-full px-5 xl:px-8 pb-[80px]">
+            <div class="w-full h-full flex items-end">
+              <div class="w-full flex flex-wrap justify-between items-center">
+                <div class="flex-1">
+                  {{- if .title }}
+                  <h1 class="text-white lg:text-[6.625rem] font-extrabold font-heading uppercase leading-none">{{ .title
+                    | safeHTML }}
+                  </h1>
+                  {{- end }}
+                </div>
+                <div class="w-[286px] flex-none">
+                  {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "w-full h-auto"
+                  "DisplayMD" "360x" ) }}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </section>
 {{- end }}
 {{- end }}

@@ -25,21 +25,21 @@
       }">
 
         <div class="splide" x-ref="newsslider">
-            <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 mb-10 md:hidden">
+            <div class="container w-full mx-auto px-5 xl:px-8 mb-10 md:hidden">
                 <div class="flex items-center space-x-5">
                     <div>
                         <h3 class="text-black text-[2.25rem] font-bold uppercase mb-[10px]">{{ .year }}</h3>
                         <div class="w-[56px] h-[3px] bg-primary"></div>
                     </div>
                     <div class="mb-[6px]">
-                        <a class="text-xl text-primary-text font-bold leading-[1.2]" href="/year/{{ .year | urlize }}">Alle</a>
+                        <a class="text-xl text-primary-text font-bold leading-[1.2]"
+                            href="/year/{{ .year | urlize }}">Alle</a>
                     </div>
                 </div>
             </div>
 
             <div class="flex flex-col pl-3">
-                <div
-                    class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 mt-10 md:mt-0 order-2 md:order-1">
+                <div class="container w-full mx-auto px-5 xl:px-8 mt-10 md:mt-0 order-2 md:order-1">
                     <div class="md:flex md:justify-between md:items-center mb-10">
                         <div class="flex-1 hidden md:block">
                             <div class="flex items-center space-x-5">
@@ -48,7 +48,8 @@
                                     <div class="w-[56px] h-[3px] bg-primary"></div>
                                 </div>
                                 <div class="mb-[6px]">
-                                    <a class="text-xl text-primary-text font-bold leading-[1.2]" href="/year/{{ .year | urlize }}">Alle</a>
+                                    <a class="text-xl text-primary-text font-bold leading-[1.2]"
+                                        href="/year/{{ .year | urlize }}">Alle</a>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +79,7 @@
                                             "Size" "420x280" ) }}
                                             {{ else }}
                                             <img src="/images/news-cover.webp" loading="eager" decoding="async"
-                                            alt="Slider image" class=" w-full h-auto img" width="420" height="280">
+                                                alt="Slider image" class=" w-full h-auto img" width="420" height="280">
                                             {{ end }}
                                         </div>
                                     </div>

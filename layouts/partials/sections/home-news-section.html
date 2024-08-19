@@ -1,14 +1,21 @@
 {{- with .Site.Data.home.news_slider_section }}
 {{- if .enable }}
 <section class="home-news-section">
-    <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 pt-[80px] pb-[104px] md:pb-[56px]">
+    <div class="container w-full mx-auto px-5 xl:px-8 pt-[80px] pb-[104px] md:pb-[56px]">
         <div x-data="{ 
         init() {
           new Splide(this.$refs.newsslider, {
             perPage  : 3,
+            mediaQuery: 'min',
             breakpoints: {
-                640: {
+                320: {
                     perPage: 1,
+                },
+                768: {
+                    perPage: 3,
+                },
+                1800: {
+                    perPage: 4,
                 },
             },
             gap: '40px',

@@ -4,7 +4,7 @@
     <div class="aspect-w-[175] aspect-h-[212] md:aspect-w-[16] md:aspect-h-[9] lg:aspect-w-11 lg:aspect-h-3">
       <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/news-section-1-bg.webp')]">
         <div class="h-full bg-black/60">
-          <div class="container w-full h-full max-w-screen-xl mx-auto px-5 xl:px-0 pb-[80px] lg:pb-[40px] xl:pb-[80px]">
+          <div class="container w-full mx-auto h-full px-5 xl:px-8 pb-[80px] lg:pb-[40px] xl:pb-[80px]">
             <div class="w-full h-full flex items-end">
               <div class="w-full flex flex-col md:flex-row justify-between lg:items-center">
                 <div class="flex-1">
@@ -20,10 +20,12 @@
                     </a>
                   </div>
                   <h1
-                    class="text-white text-[3rem] md:text-[4rem] lg:text-[4.75rem] font-extrabold font-heading uppercase leading-none">{{ .Title }}</h1>
+                    class="text-white text-[3rem] md:text-[4rem] lg:text-[4.75rem] font-extrabold font-heading uppercase leading-none">
+                    {{ .Title }}</h1>
                 </div>
                 <div class="w-[184px] md:w-[240px] lg:w-[286px] flex-none text-primary">
-                  {{- partial "svg/hotline.svg" (dict "class" "w-[184px] md:w-[240px] lg:w-[286px] h-auto text-current") }}
+                  {{- partial "svg/hotline.svg" (dict "class" "w-[184px] md:w-[240px] lg:w-[286px] h-auto text-current")
+                  }}
                 </div>
               </div>
             </div>
@@ -33,7 +35,7 @@
     </div>
   </section>
 
-  <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 py-[80px]">
+  <div class="container w-full mx-auto px-5 xl:px-8 py-[80px]">
     {{- $paginator := .Paginate .Data.Pages }}
     {{- $paginator := .Paginator }}
     {{- $total_posts := $paginator.TotalNumberOfElements }}

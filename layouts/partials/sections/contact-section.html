@@ -1,11 +1,12 @@
 {{- with .Site.Data.home.contact_section }}
 {{- if .enable }}
 <section class="contact-section bg-white">
-    <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 py-[80px]">
+    <div class="container w-full mx-auto px-5 xl:px-8 py-[80px]">
         <div class="grid grid-cols-7 lg:gap-x-[40px] xl:gap-x-[60px] gap-y-10">
             <div class="col-span-12 lg:col-span-3 flex flex-col justify-end">
                 <header class="mb-5">
-                    <h3 class="text-[2.5rem] lg:text-[4rem] text-[#091035] font-bold font-heading leading-none mb-0">{{ .title | safeHTML
+                    <h3 class="text-[2.5rem] lg:text-[4rem] text-[#091035] font-bold font-heading leading-none mb-0">{{
+                        .title | safeHTML
                         }}</h3>
                 </header>
                 <div class="mb-5">
@@ -30,7 +31,8 @@
                                     href="tel:118" target="_blank">{{ .text }}</a></h4>
                             {{- else }}
                             <p class="text-[#091035] text-lg lg:text-xl font-bold leading-normal mb-0">{{ .text }}</p>
-                            {{- end }}                        </div>
+                            {{- end }}
+                        </div>
                     </div>
                     {{- end }}
                 </div>
@@ -38,7 +40,8 @@
             <div class="col-span-12 lg:col-span-4">
                 <div
                     class="contact__form-wrapper h-full bg-white py-[50px] px-5 md:px-[50px] shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),_0px_4px_6px_rgba(0,0,0,0.05)] rounded-[20px]">
-                    <form class="contact__form" method="post" action="https://api.form-data.com/f/z7zdukjg6m2258veawjcy">
+                    <form class="contact__form" method="post"
+                        action="https://api.form-data.com/f/z7zdukjg6m2258veawjcy">
                         <div>
                             <div class="mb-[25px]">
                                 <div class="mb-[5px]">
@@ -53,7 +56,8 @@
                             <div class="grid grid-cols-12 gap-x-5 mb-[25px]">
                                 <div class="col-span-12 md:col-span-6">
                                     <div class="mb-[5px]">
-                                        <label class="text-sm text-black font-body leading-[1.6]" for="email">E-Mail Adresse*</label>
+                                        <label class="text-sm text-black font-body leading-[1.6]" for="email">E-Mail
+                                            Adresse*</label>
                                     </div>
                                     <div>
                                         <input
@@ -64,7 +68,8 @@
                                 </div>
                                 <div class="col-span-12 md:col-span-6">
                                     <div class="mb-[5px]">
-                                        <label class="text-sm text-black font-body leading-[1.6]" for="phone">Telefonnummer</label>
+                                        <label class="text-sm text-black font-body leading-[1.6]"
+                                            for="phone">Telefonnummer</label>
                                     </div>
                                     <div>
                                         <input
@@ -76,19 +81,23 @@
                             </div>
                             <div class="mb-[25px]">
                                 <div class="mb-[5px]">
-                                    <label class="text-sm text-black font-body leading-[1.6]" for="message">Nachricht*</label>
+                                    <label class="text-sm text-black font-body leading-[1.6]"
+                                        for="message">Nachricht*</label>
                                 </div>
                                 <div>
                                     <textarea
                                         class="bg-white w-full text-sm text-black font-body leading-none border border-gray-400 rounded-[8px] px-[25px] pt-[12px] pb-[14px] placeholder:text-gray-400 placeholder:font-normal placeholder:text-sm placeholder:leading-none focus:outline-none focus:border-gray-500 focus:ring-transparent focus:ring-0"
-                                        name="message" id="message" placeholder="Deine Nachricht an die Feuerwehr Urdorf..." rows="9"
+                                        name="message" id="message"
+                                        placeholder="Deine Nachricht an die Feuerwehr Urdorf..." rows="9"
                                         required=""></textarea>
                                 </div>
                             </div>
                             <div>
-                                <input type="text" name="xx_password" style="display:none !important" tabindex="-1" autocomplete="off">
+                                <input type="text" name="xx_password" style="display:none !important" tabindex="-1"
+                                    autocomplete="off">
                                 <button type="submit"
-                                    class="w-full bg-primary text-center text-white text-lg font-body font-semibold leading-normal rounded-[10px] px-6 py-3">Nachricht abschicken</button>
+                                    class="w-full bg-primary text-center text-white text-lg font-body font-semibold leading-normal rounded-[10px] px-6 py-3">Nachricht
+                                    abschicken</button>
                             </div>
                         </div>
                     </form>

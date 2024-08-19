@@ -6,9 +6,16 @@
               new Splide(this.$refs.slider, {
                 type   : 'loop',
                 perPage: 3,
+                mediaQuery: 'min',
                 breakpoints: {
-                    640: {
+                    320: {
                         perPage: 1,
+                    },
+                    768: {
+                        perPage: 3,
+                    },
+                    1800: {
+                        perPage: 4,
                     },
                 },
                 padding: { left: '8rem', right: '8rem' },

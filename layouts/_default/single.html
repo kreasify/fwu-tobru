@@ -1,33 +1,35 @@
 {{- define "main" }}
 <div class="page__single pt-[108px] overflow-hidden bg-[#F9FAFB]">
-    {{- if .Params.page_header }}
-    {{ partial "page-single-header.html" . }}
-    {{ else }}
-    {{ partial "page-single-header-default.html" . }}
-    {{- end }}
+  {{- if .Params.page_header }}
+  {{ partial "page-single-header.html" . }}
+  {{ else }}
+  {{ partial "page-single-header-default.html" . }}
+  {{- end }}
 
-    <div class="container w-full h-full max-w-screen-lg mx-auto px-5 xl:px-0 pb-[80px]">
-        {{- if eq .Section "vehicles" }}
-        {{ partial "page-single-vehicle.html" . }}
-        {{- else }}
-        <div>
-            <div class="{{ if or (eq .Section "news") (eq .Section "mission" ) }}max-w-[840px] mx-auto{{
-                end }} py-[80px] text-gray-600">
-                <div class="mb-6">
-                    {{ partial "card-time.html" . }}
-                </div>
-                <div class="page__content">
-                    {{ .Content }}
-                </div>
-            </div>
+  <div class="container w-full max-w-screen-lg mx-auto h-full px-5 xl:px-0 pb-[80px]">
+    {{- if eq .Section "vehicles" }}
+    {{ partial "page-single-vehicle.html" . }}
+    {{- else }}
+    <div>
+      <div class="{{ if or (eq .Section " news") (eq .Section "mission" ) }}max-w-[840px] mx-auto{{ end }} py-[80px]
+        text-gray-600">
+        <div class="mb-6">
+          {{ partial "card-time.html" . }}
         </div>
-        {{- end }}
+        <div class="page__content">
+          {{ .Content }}
+        </div>
+      </div>
     </div>
+    {{- end }}
+  </div>
 </div>
+{{- $fancybox := resources.Get "js/fancybox.umd.js" }}
+<script src="{{ $fancybox.RelPermalink }}"></script>
 <script>
   Fancybox.bind('[data-fancybox="gallery"]', {
     hideScrollbar: true,
-    Thumbs : {
+    Thumbs: {
       showOnStart: false
     }
   });    

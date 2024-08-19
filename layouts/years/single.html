@@ -6,7 +6,7 @@
     {{ partial "page-single-header-default.html" . }}
     {{- end }}
 
-    <div class="container w-full h-full max-w-screen-lg mx-auto px-5 xl:px-0 pb-[80px]">
+    <div class="container w-full max-w-screen-lg mx-auto h-full px-5 xl:px-0 pb-[80px]">
         {{- $include_dict := dict "Params" .Params }}
         {{- if eq .Section "vehicles" }}
         {{ partial "page-single-vehicle.html" $include_dict }}
@@ -17,8 +17,8 @@
                 open = true;
             });
         });
-    "{{ end }}>
-            <div class="page__content {{ if or (eq .Section "news") (eq .Section "mission" ) }}max-w-[840px] mx-auto{{
+    " {{ end }}>
+            <div class="page__content {{ if or (eq .Section " news") (eq .Section "mission" ) }}max-w-[840px] mx-auto{{
                 end }} py-[80px] text-gray-600">
                 {{ .Content }}
             </div>
@@ -41,9 +41,16 @@
                           new Splide(this.$refs.galleries, {
                             type   : 'loop',
                             perPage  : 1,
+                            mediaQuery: 'min',
                             breakpoints: {
-                                640: {
+                                320: {
                                     perPage: 1,
+                                },
+                                768: {
+                                    perPage: 3,
+                                },
+                                1800: {
+                                    perPage: 4,
                                 },
                             },
                             gap: '2rem',

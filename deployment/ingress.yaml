@@ -2,11 +2,31 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod-desec
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.middlewares: kube-system-redirect-https@kubernetescrd
   name: website
 spec:
   rules:
+    - host: www.feuerwehrurdorf.ch
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: website
+                port:
+                  number: 8080
+    - host: feuerwehrurdorf.ch
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: website
+                port:
+                  number: 8080
     - host: fwu.tobru.ch
       http:
         paths:
@@ -19,5 +39,7 @@ spec:
                   number: 8080
   tls:
     - hosts:
+        - www.feuerwehrurdorf.ch
+        - feuerwehrurdorf.ch
         - fwu.tobru.ch
       secretName: ingress-cert

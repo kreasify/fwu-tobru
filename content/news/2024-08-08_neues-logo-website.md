@@ -8,14 +8,20 @@ years:
 image_cover: assets/images/news-newlogo-card.png
 ---
 
-Die Feuerwehr Urdorf erhält ein neues Logo und eine neue Website.
+Die Feuerwehr Urdorf erhält im Sommer 2024 ein neues Logo und eine neue Website.
 
 ![Altes und neues Logo](news/newlogo-oldnew.png)
 
 Nach vielen Jahren wurde es Zeit für ein neues Logo.
 Das neue Logo hat die Form eines Emblems und lässt sich sehr passend auf Badges sticken oder drucken.
 
-Zusammen mit dem neuen Logo, wurde auch die Website unter https://www.feuerwehrurdorf.ch komplett neu gestaltet und auf ein modernes Design umgestellt.
+Zusammen mit dem neuen Logo wurde auch die Website unter https://www.feuerwehrurdorf.ch komplett neu gestaltet und auf ein modernes Design umgestellt.
+Die News und Einsätze lassen sich in einem [News-Reader](https://de.wikipedia.org/wiki/Feedreader) abonnieren:
 
-Alle Angehörige der Feuerwehr Urdorf erhalten neu T-Shirst in Navy Blau mit dem neuen Logo aufgedruckt.
-Diese T-Shirt ersetzt das alte Lemon-farbige T-Shirt im Feuerwehr Alltag.
+* [News](https://www.feuerwehrurdorf.ch/news/index.xml)
+* [Einsätze](https://www.feuerwehrurdorf.ch/einsaetze/index.xml)
+
+Die "Internet Archive Wayback Machine" bietet einen Blick in die Vergangenheit der Feuerwehr Urdorf Webseite: [Archive.org](https://web.archive.org/web/*/www.feuerwehrurdorf.ch).
+
+Alle Angehörige der Feuerwehr Urdorf erhalten neu T-Shirts in der Farbe "Navy Blau" mit dem neuen Logo aufgedruckt.
+Dieses T-Shirt ersetzt das alte, Lemon-farbige T-Shirt im Feuerwehr Urdorf Alltag.

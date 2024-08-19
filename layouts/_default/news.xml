@@ -22,7 +22,7 @@
       <author>{{ index .Params.authors 0 }}</author>
       {{- end }}
       <guid>{{ .Permalink }}</guid>
-      <description>{{ .Content | html }}</description>
+      <description>{{ .Content | htmlEscape }}</description>
     </item>
     {{- end }}
   </channel>

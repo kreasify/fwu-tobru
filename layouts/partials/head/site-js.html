@@ -4,13 +4,9 @@
 {{- $persist := resources.Get "js/vendor/persist/dist/cdn.min.js" }}
 {{- $splide := resources.Get "js/vendor/splide/dist/js/splide.min.js" }}
 {{- $theme := resources.Get "js/theme-toggle.js" }}
-{{- $fancybox := resources.Get "js/fancybox.umd.js" }}
 
 <!-- Combine JS -->
 {{- $js := slice $splide $persist $collapse $alpine | resources.Concat "js/main.js" }}
 {{- $js_min := $js | resources.Minify }}
 <script defer src="{{ $theme.RelPermalink }}"></script>
 <script defer src="{{ $js_min.RelPermalink }}"></script>
-{{- if .IsPage }}
-<script src="{{ $fancybox.RelPermalink }}"></script>
-{{- end }}

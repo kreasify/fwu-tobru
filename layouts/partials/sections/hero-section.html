@@ -7,64 +7,66 @@
     {{- if fileExists (add `assets/` (string $image_src)) }}
     {{- $image_bg:= resources.Get $image_src }}
     {{- $image_resize := $image_bg.Resize "1920x webp" }}
-    <div class="hero-section__bg hidden md:block w-full h-full bg-cover bg-no-repeat bg-center bg-[url('{{ $image_resize.RelPermalink }}')]"
+    <div
+      class="hero-section__bg hidden md:block w-full h-full bg-cover bg-no-repeat bg-center bg-[url('{{ $image_resize.RelPermalink }}')]"
       style="background-image: url('{{ $image_resize.RelPermalink }}')">
       {{- end }}
       {{ else }}
-    <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/home-section-1-bg.webp')]">
-      {{- end }}
-      <div class="h-full bg-gradient-to-b from-transparent to-black">
-        <div class="container w-full h-full max-w-screen-xl mx-auto px-5 xl:px-0 pb-[80px] md:pb-[50px] lg:pb-[80px]">
-          <div class="w-full h-full flex items-end">
-            <div class="w-full flex flex-wrap justify-between items-center space-y-[30px] lg:space-y-0">
-              <div class="flex-1">
-                {{- if .title }}
-                <h1
-                  class="text-white text-[3rem] md:text-[4rem] lg:text-[6.625rem] font-extrabold font-heading uppercase leading-none">
-                  {{ .title | safeHTML }}
-                </h1>
-                {{- end }}
-              </div>
-              <div class="w-[184px] lg:w-[286px] flex-none text-primary">
-                {{- partial "svg/hotline.svg" (dict "class" "w-[184px] lg:w-[286px] h-auto text-current") }}
+      <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/home-section-1-bg.webp')]">
+        {{- end }}
+        <div class="h-full bg-gradient-to-b from-transparent to-black">
+          <div class="container w-full mx-auto h-full px-5 xl:px-8 pb-[80px] md:pb-[50px] lg:pb-[80px]">
+            <div class="w-full h-full flex items-end">
+              <div class="w-full flex flex-wrap justify-between items-center space-y-[30px] lg:space-y-0">
+                <div class="flex-1">
+                  {{- if .title }}
+                  <h1
+                    class="text-white text-[3rem] md:text-[4rem] lg:text-[6.625rem] font-extrabold font-heading uppercase leading-none">
+                    {{ .title | safeHTML }}
+                  </h1>
+                  {{- end }}
+                </div>
+                <div class="w-[184px] lg:w-[286px] flex-none text-primary">
+                  {{- partial "svg/hotline.svg" (dict "class" "w-[184px] lg:w-[286px] h-auto text-current") }}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    {{- if .image_bg_mobile }}
-    {{- $image_src := replace .image_bg_mobile "assets/" "" }}
-    {{- if fileExists (add `assets/` (string $image_src)) }}
-    {{- $image_bg_mobile:= resources.Get $image_src }}
-    <div class="hero-section__bg-mobile md:hidden w-full h-full bg-cover bg-no-repeat bg-center bg-[url('{{ $image_bg_mobile.RelPermalink }}')]"
-      style="background-image: url('{{ $image_bg_mobile.RelPermalink }}')">
-      {{- end }}
-      {{ else }}
-    <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/home-section-1-bg.webp')]">
-      {{- end }}
-      <div class="h-full bg-gradient-to-b from-transparent to-black">
-        <div class="container w-full h-full max-w-screen-xl mx-auto px-5 xl:px-0 pb-[80px] md:pb-[50px] lg:pb-[80px]">
-          <div class="w-full h-full flex items-end">
-            <div class="w-full flex flex-wrap justify-between items-center space-y-[30px] lg:space-y-0">
-              <div class="flex-1">
-                {{- if .title }}
-                <h1
-                  class="text-white text-[3rem] md:text-[4rem] lg:text-[6.625rem] font-extrabold font-heading uppercase leading-none">
-                  {{ .title | safeHTML }}
-                </h1>
-                {{- end }}
-              </div>
-              <div class="w-[184px] lg:w-[286px] flex-none text-primary">
-                {{- partial "svg/hotline.svg" (dict "class" "w-[184px] lg:w-[286px] h-auto text-current") }}
+      {{- if .image_bg_mobile }}
+      {{- $image_src := replace .image_bg_mobile "assets/" "" }}
+      {{- if fileExists (add `assets/` (string $image_src)) }}
+      {{- $image_bg_mobile:= resources.Get $image_src }}
+      <div
+        class="hero-section__bg-mobile md:hidden w-full h-full bg-cover bg-no-repeat bg-center bg-[url('{{ $image_bg_mobile.RelPermalink }}')]"
+        style="background-image: url('{{ $image_bg_mobile.RelPermalink }}')">
+        {{- end }}
+        {{ else }}
+        <div class="w-full h-full bg-cover bg-no-repeat bg-center bg-[url('/images/home-section-1-bg.webp')]">
+          {{- end }}
+          <div class="h-full bg-gradient-to-b from-transparent to-black">
+            <div class="container w-full mx-auto h-full px-5 xl:px-8 pb-[80px] md:pb-[50px] lg:pb-[80px]">
+              <div class="w-full h-full flex items-end">
+                <div class="w-full flex flex-wrap justify-between items-center space-y-[30px] lg:space-y-0">
+                  <div class="flex-1">
+                    {{- if .title }}
+                    <h1
+                      class="text-white text-[3rem] md:text-[4rem] lg:text-[6.625rem] font-extrabold font-heading uppercase leading-none">
+                      {{ .title | safeHTML }}
+                    </h1>
+                    {{- end }}
+                  </div>
+                  <div class="w-[184px] lg:w-[286px] flex-none text-primary">
+                    {{- partial "svg/hotline.svg" (dict "class" "w-[184px] lg:w-[286px] h-auto text-current") }}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 </section>
 {{- end }}
 {{- end }}

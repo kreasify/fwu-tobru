@@ -33,14 +33,17 @@
       <author>{{ index .Params.authors 0 }}</author>
       {{- end }}
       <guid>{{ .Permalink }}</guid>
-      <description>{{ .Content | html }}</description>
+      <description>{{ .Content | htmlEscape }}</description>
     </item>
     {{- end }}
     {{- range $missionPages }}
+    {{- $permalink := .Permalink }}
     {{- range .Params.mission }}
     <item>
       <title>{{ .title }}</title>
-      <pubDate>{{ .date }}</pubDate>
+      <link>{{ $permalink }}</link>
+      <pubDate>{{ .date | time.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <guid>{{ $permalink }}</guid>
       <description>{{ .description }}</description>
     </item>
     {{- end }}

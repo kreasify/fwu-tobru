@@ -7,11 +7,11 @@
     {{- $posts := where site.RegularPages "Type" "news" }}
     {{- $years := slice }}
     {{- range $posts }}
-        {{- range .Params.years }}
-            {{- $years = $years | append . }}
-        {{- end }}
+    {{- range .Params.years }}
+    {{- $years = $years | append . }}
     {{- end }}
-    {{- $years = $years | uniq  }}
+    {{- end }}
+    {{- $years = $years | uniq }}
     {{- range $year := $years }}
     {{- $yearPosts := where $posts "Params.years" "intersect" (slice $year) }}
     <div class="mb-[56px] last:mb-0">
@@ -20,9 +20,16 @@
                 init() {
                   new Splide(this.$refs.newsslider, {
                     perPage  : 3,
+                    mediaQuery: 'min',
                     breakpoints: {
-                        640: {
+                        320: {
                             perPage: 1,
+                        },
+                        768: {
+                            perPage: 3,
+                        },
+                        1800: {
+                            perPage: 4,
                         },
                     },
                     gap: '40px',
@@ -40,32 +47,34 @@
                     }).mount()
                   },
               }">
-        
+
                 <div class="splide" x-ref="newsslider">
-                    <div class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 mb-10 md:hidden">
+                    <div class="container w-full mx-auto px-5 xl:px-8 mb-10 md:hidden">
                         <div class="flex items-center space-x-5">
                             <div>
                                 <h3 class="text-black text-[2.25rem] font-bold uppercase mb-[10px]">{{ $year }}</h3>
                                 <div class="w-[56px] h-[3px] bg-primary"></div>
                             </div>
                             <div class="mb-[6px]">
-                                <a class="text-xl text-primary-text font-bold leading-[1.2]" href="/year/{{ $year | urlize }}">Alle ({{ len $yearPosts }})</a>
+                                <a class="text-xl text-primary-text font-bold leading-[1.2]"
+                                    href="/year/{{ $year | urlize }}">Alle ({{ len $yearPosts }})</a>
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="flex flex-col pl-3">
-                        <div
-                            class="container w-full max-w-screen-xl mx-auto px-5 xl:px-0 mt-10 md:mt-0 order-2 md:order-1">
+                        <div class="container w-full mx-auto px-5 xl:px-8 mt-10 md:mt-0 order-2 md:order-1">
                             <div class="md:flex md:justify-between md:items-center mb-10">
                                 <div class="flex-1 hidden md:block">
                                     <div class="flex items-center space-x-5">
                                         <div>
-                                            <h3 class="text-black text-[2.25rem] font-bold uppercase mb-[10px]">{{ $year }}</h3>
+                                            <h3 class="text-black text-[2.25rem] font-bold uppercase mb-[10px]">{{ $year
+                                                }}</h3>
                                             <div class="w-[56px] h-[3px] bg-primary"></div>
                                         </div>
                                         <div class="mb-[6px]">
-                                            <a class="text-xl text-primary-text font-bold leading-[1.2]" href="/year/{{ $year | urlize }}">Alle ({{ len $yearPosts }})</a>
+                                            <a class="text-xl text-primary-text font-bold leading-[1.2]"
+                                                href="/year/{{ $year | urlize }}">Alle ({{ len $yearPosts }})</a>
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +83,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pl-[calc((100%_-_1200px)_/_2)] order-1 md:order-2">
+                        <div class="pl-[calc((100%_-_1200px)_/_2)] 2xl:pl-[calc((100%_-_1760px)_/_2)] order-1 md:order-2">
                             <div class="splide__track news-slider-track">
                                 <ul class="splide__list">
                                     {{- range $index, $post := first 9 $yearPosts }}
@@ -85,7 +94,8 @@
                                                 <div
                                                     class="absolute top-0 left-0 w-full h-full rounded-t-[10px] overflow-hidden">
                                                     {{- if $post.Params.image_cover }}
-                                                    {{- partial "image" (dict "Src" $post.Params.image_cover "Alt" "Slider image"
+                                                    {{- partial "image" (dict "Src" $post.Params.image_cover "Alt"
+                                                    "Slider image"
                                                     "Loading"
                                                     "eager"
                                                     "Class"
@@ -93,20 +103,22 @@
                                                     "Size" "420x280" ) }}
                                                     {{- else }}
                                                     <img src="/images/news-cover.webp" loading="eager" decoding="async"
-                                                    alt="Slider image" class=" w-full h-auto img" width="420" height="280">
+                                                        alt="Slider image" class=" w-full h-auto img" width="420"
+                                                        height="280">
                                                     {{- end }}
                                                 </div>
                                             </div>
                                             <div class="py-6 px-[25px]">
                                                 {{ partial "card-time.html" $post }}
-                                                <div>
+                                                <div class="break-words">
                                                     <a class="before:absolute before:content-[''] before:top-0 before:left-0 before:w-full before:h-full"
                                                         href="{{ $post.RelPermalink }}">
                                                         <h3
                                                             class="text-[#101010] text-[1.375rem] font-heading font-semibold leading-[1.025] mb-2">
                                                             {{ $post.Title | safeHTML }}</h3>
                                                     </a>
-                                                    <p class="text-gray-600 leading-normal mb-0">{{ $post.Params.description | safeHTML }}</p>
+                                                    <p class="text-gray-600 leading-normal mb-0">{{
+                                                        $post.Params.description | safeHTML }}</p>
                                                 </div>
                                             </div>
                                         </div>

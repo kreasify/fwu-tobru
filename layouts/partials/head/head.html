@@ -10,6 +10,7 @@
     {{ partialCached "head/favicon.html" . }}
     {{ "<!-- site js -->" | safeHTML }}
     {{ partialCached "head/site-js.html" . }}
+    {{ partialCached "head/set-theme.html" . }}
     {{ "<!-- site style -->" | safeHTML }}
     {{ partial "head/site-style" . }}
     {{ partial "head/head-seo.html" . }}
@@ -21,5 +22,10 @@
 
     {{ template "_internal/schema.html" . }}
 
-    <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="JK3CUFBkiYl7CuhTuG7tg2NZGqcNV5du"></script>
+    <script defer src="https://pirsch.feuerwehrurdorf.ch/pa.js"
+        id="pianjs"
+        data-code="JK3CUFBkiYl7CuhTuG7tg2NZGqcNV5du"
+        data-hit-endpoint="https://pirsch.feuerwehrurdorf.ch/hit"
+        data-event-endpoint="https://pirsch.feuerwehrurdorf.ch/event"
+        data-session-endpoint="https://pirsch.feuerwehrurdorf.ch/session"></script>
 </head>

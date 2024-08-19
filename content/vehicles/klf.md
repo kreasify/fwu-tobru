@@ -4,11 +4,12 @@ description: "Kleinlöschfahrzeug KLF"
 date: 2024-07-01T06:00:00+00:00
 slug: "klf"
 image_cover: "assets/images/home-vehicle-2.png"
-gallery_images:
-  - "assets/images/home-vehicle-1.png"
-  - "assets/images/home-vehicle-2.png"
-  - "assets/images/home-vehicle-3.jpg"
-  - "assets/images/home-vehicle-4.png"
+# gallery_images:
+#   - "assets/images/home-vehicle-1.png"
+#   - "assets/images/home-vehicle-2.png"
+#   - "assets/images/home-vehicle-3.jpg"
+#   - "assets/images/home-vehicle-4.png"
+#   - "assets/images/home-vehicle-5.png"
 specification:
     vehicle_type: "Iveco Daily 65C 18D 4x4"
     radio_name: "Uro KLF"
@@ -24,4 +25,3 @@ specification:
 draft: false
 weight: 20
 ---
-
