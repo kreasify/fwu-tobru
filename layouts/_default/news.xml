@@ -22,7 +22,8 @@
       <author>{{ index .Params.authors 0 }}</author>
       {{- end }}
       <guid>{{ .Permalink }}</guid>
-      <description>{{ .Content | htmlEscape }}</description>
+      {{ $regex := `(?s)<div class="video-container aspect-w-16 aspect-h-9">\s*<iframe.+?iframe>\s*</div>` }}
+      <description>{{ .Content | replaceRE $regex "" | htmlEscape }}</description>
     </item>
     {{- end }}
   </channel>

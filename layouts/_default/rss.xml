@@ -20,7 +20,7 @@
     <managingEditor>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</managingEditor>{{end}}{{ with .Site.Author.email }}
     <webMaster>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</webMaster>{{end}}{{ with .Site.Params.copyRight }}
     <copyright>{{ . | safeHTML }}</copyright>{{end}}{{ if not .Date.IsZero }}
-    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
+    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:00:00 +0200" }}</lastBuildDate>{{ end }}
     {{- with .OutputFormats.Get "RSS" }}
         {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end }}
@@ -28,22 +28,34 @@
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
-      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:00:00 +0200" }}</pubDate>
       {{- if .Params.authors }}
       <author>{{ index .Params.authors 0 }}</author>
       {{- end }}
       <guid>{{ .Permalink }}</guid>
-      <description>{{ .Content | htmlEscape }}</description>
+      {{ $regex := `(?s)<div class="video-container aspect-w-16 aspect-h-9">\s*<iframe.+?iframe>\s*</div>` }}
+      <description>{{ .Content | replaceRE $regex "" | htmlEscape }}</description>
     </item>
     {{- end }}
     {{- range $missionPages }}
     {{- $permalink := .Permalink }}
-    {{- range .Params.mission }}
+    {{- $mission_title := .Title }}
+    {{- range $index, $mission := .Params.mission }}
     <item>
       <title>{{ .title }}</title>
       <link>{{ $permalink }}</link>
-      <pubDate>{{ .date | time.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
-      <guid>{{ $permalink }}</guid>
+      {{ $date := .date | dateFormat "02 Jan 2006 15:04 MST" }}
+      {{ $date = replace $date "Mär" "Mar" }}
+      {{ $date = replace $date "Marz" "Mar" }}
+      {{ $date = replace $date "Mai" "May" }}
+      {{ $date = replace $date "Juni" "Jun" }}
+      {{ $date = replace $date "Juli" "Jul" }}
+      {{ $date = replace $date "Sept" "Sep" }}
+      {{ $date = replace $date "Okt" "Oct" }}
+      {{ $date = replace $date "Dez" "Dec" }}
+      {{ $date = replace $date "." "" }}
+      <pubDate>{{ $date }}</pubDate>
+      <guid isPermaLink="false">{{ .title | urlize }}-{{ $mission_title | urlize }}-{{ $index }}</guid>
       <description>{{ .description }}</description>
     </item>
     {{- end }}
